@@ -1,13 +1,13 @@
 ---
 # Display name
-title: Alex Johnson
+title: Lan Feng
 
 # Name pronunciation (optional)
 name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Alex
-last_name: Johnson
+first_name: Lan
+last_name: Feng
 
 # Pronouns (optional)
 pronouns: he/him
@@ -23,80 +23,69 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Senior AI Research Scientist
+role: Ph.D. Candidate
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: EPFL, Switzerland
+    url: https://www.epfl.ch/labs/vita/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:alex.johnson@meta.com'
+    url: 'mailto:lan.feng@epfl.ch'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/AlexAIResearch
+    url: https://x.com/lanfeng491270?s=21
   - icon: brands/github
-    url: https://github.com/alexjohnsonai
+    url: https://github.com/Alan-LanFeng
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/alexjohnsonai/
+    url: https://www.linkedin.com/in/lan-feng-alan
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=alexjohnson
-  - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en
+
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Data Selection & Curation
+  - Autonomous Driving
+  - Video Generation & Understanding
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    date_start: 2015-09-01
-    date_end: 2019-06-30
+  - area: PhD Robotics
+    institution: EPFL, Switzerland
+    date_start: 2024-05-01
+    date_end: 2028-04-30
     summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    date_start: 2013-09-01
-    date_end: 2015-05-31
+      Thesis on _Data Selection & Curation for Autonomous Driving_. Supervised by Prof. Alexandre Alahi.
+    # button:
+    #   text: 'Read Thesis'
+    #   url: 'https://example.com/thesis.pdf'
+  - area: MS Robotics
+    institution: ETH Zurich, Switzerland
+    date_start: 2021-09-01
+    date_end: 2023-10-30
     summary: |
-      GPA: 4.0/4.0
+      GPA: 5.67/6.0
 
-      Specialized in machine learning and robotics.
-  - area: BS Computer Science
-    institution: MIT
-    date_start: 2009-09-01
-    date_end: 2013-05-31
+      Specialized in deep learning and robotics.
+  - area: BE Navigation Engineering
+    institution: Wuhan University, China
+    date_start: 2016-09-01
+    date_end: 2020-05-31
     summary: |
       GPA: 3.9/4.0
 
-      Minored in Mathematics. President of AI Club.
-
 work:
-  - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
+  - position: Trainee Researcher
+    company_name: SenseTime
+    company_url: 'https://www.sensetime.com/'
     company_logo: ''
     date_start: 2020-01-01
     date_end: ''
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
-    company_logo: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
-    summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+      Learning-based traffic simulation.
+
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -107,11 +96,7 @@ skills:
         description: ''
         percent: 95
         icon: code-bracket
-      - name: Machine Learning
-        description: ''
-        percent: 100
-        icon: chart-bar
-      - name: Cloud Computing (AWS/GCP)
+      - name: docker, git, vscode
         description: ''
         percent: 85
         icon: cloud
@@ -119,51 +104,50 @@ skills:
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking in the Rockies
+      - name: Whisky Tasting
         description: ''
         percent: 80
         icon: person-simple-walk
-      - name: Building Custom PCs
+      - name: Coffee Brewing
         description: ''
         percent: 90
         icon: cpu-chip
-      - name: Sci-Fi Reading
-        description: ''
-        percent: 70
-        icon: book-open
+
 
 languages:
-  - name: English
+  - name: Chinese
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: English
+    percent: 80
 
 # Awards.
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
 awards:
-  - title: Best Paper Award
-    url: https://neurips.cc/
-    date: '2022-12-01'
-    awarder: NeurIPS
+  - title: 1st Place in the 2025 Waymo End-to-End Planning Challenge
+    url: https://waymo.com/open/challenges/
+    date: '2025-12-01'
+    awarder: Waymo
     icon: hero/trophy
     summary: |
-      Awarded for groundbreaking work on efficient training of large models.
-  - title: AI Innovation Grant
-    url: https://www.nsf.gov/
+      $10,000 grant for outstanding performance in the 2025 Waymo End-to-End Planning Challenge.
+  - title: 1st Place in the 2021 Waymo Interaction Prediction Challenge
     date: '2021-06-15'
     awarder: National Science Foundation
-    icon: hero/currency-dollar
+    icon: hero/trophy
     summary: |
-      $500,000 grant for research in ethical AI development.
-  - title: Outstanding PhD Thesis
-    url: https://www.stanford.edu/
+      $12,000 grant for outstanding performance in the 2021 Waymo Interaction Prediction Challenge.
+  - title: China National Scholarship
     date: '2019-06-30'
-    awarder: Stanford University
+    awarder: China Scholarship Council
     icon: hero/academic-cap
     summary: |
-      Recognized for contributions to scaling laws in deep learning.
+      Awarded for outstanding academic performance.
 ---
 
-Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+I am currently a Ph.D. candidate advised by Prof. Alexandre Alahi at EPFL, Switzerland. Before that, I received my master’s degree in Robotics, Systems and Control from ETH Zurich and my bachelor’s degree from Wuhan University.
+
+During my master studies, I worked on human-robot handover at the VIT Lab at ETH Zurich with Prof. Otmar Hilliges. Prior to that, I was engaged in applying generative models to traffic simulation with Prof. Bolei Zhou from UCLA.
+
+My research interests focus on applying data-centric techniques to LLMs, robotics, and computer vision to improve performance with less computational resources.
