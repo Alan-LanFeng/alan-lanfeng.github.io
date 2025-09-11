@@ -12,4 +12,10 @@ publishDate: '2025-09-10T15:35:58.437898Z'
 publication_types:
 - paper-conference
 publication: '*European Conference on Computer Vision*'
+featured: true
+links:
+  - type: pdf
+    url: https://arxiv.org/pdf/2403.15098
+  - type: code
+    url: https://github.com/vita-epfl/UniTraj
 ---
