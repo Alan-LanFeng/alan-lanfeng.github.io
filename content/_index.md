@@ -34,6 +34,7 @@ sections:
       title: "Recent News 📰"
       subtitle: ""
       text: |
+        - **Oct 7, 2025** — 🚀 Our work [RAP: 3D Rasterization Augmented Planning](https://alan-lanfeng.github.io/RAP/) is released!  
         - **June 1, 2025** - 🏆 I won the 1st place in the 2025 Waymo End-to-End Planning Challenge! Thanks to Alex & Waymo.
         - **Dec 3, 2024** — More data is not all you need? TAROT is now on arXiv! See how we use less data for better performance.
         - **Jul 17, 2024** — UniTraj is accepted to ECCV 2024 🔥! Thanks to all my collaborators.
