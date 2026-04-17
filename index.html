@@ -1,0 +1,444 @@
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lan Feng — PhD Candidate, EPFL</title>
+    <meta name="description" content="Lan Feng is a PhD candidate at EPFL working on data-centric methods for foundation models, LLM agents, and world models.">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="robots" content="all">
+    <meta content="en_EN" property="og:locale">
+    <meta content="website" property="og:type">
+    <meta content="https://alan-lanfeng.github.io" property="og:url">
+    <meta content="Lan Feng" property="og:title">
+    <meta content="PhD Candidate at EPFL. Data-centric methods for foundation models, LLM agents, world models." property="og:description">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Lan Feng — PhD Candidate, EPFL">
+
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="clarity/clarity.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
+    <link href="assets/fontawesome-free-7.2.0-web/css/all.min.css" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": { scale: 95, fonts: ["Gyre-Pagella"], imageFont: null, undefinedFamily: "'Arial Unicode MS', cmbright" },
+            tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]], processEscapes: true }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* --- Personal-site custom tweaks on top of Clarity --- */
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-text { flex: 1 1 360px; min-width: 280px; }
+        .hero-avatar {
+            flex: 0 0 200px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+        .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        .news-list { list-style: none; padding-left: 0; }
+        .news-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.08);
+        }
+        .news-list li:last-child { border-bottom: none; }
+        .news-date {
+            display: inline-block;
+            min-width: 120px;
+            font-weight: 600;
+            color: #4a5568;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .pub-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .pub-item:last-child { border-bottom: none; }
+        .pub-featured {
+            background: linear-gradient(90deg, rgba(224,228,230,0.45) 0%, rgba(224,228,230,0) 100%);
+            padding: 1.2rem 1rem;
+            border-left: 3px solid #304463;
+            margin-bottom: 1.2rem;
+            border-bottom: none;
+        }
+        .pub-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.15rem; }
+        .pub-title a { color: #1a2b42; text-decoration: none; }
+        .pub-title a:hover { text-decoration: underline; }
+        .pub-authors { color: #2d3748; font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .pub-authors .me { font-weight: 700; }
+        .pub-venue { color: #4a5568; font-style: italic; font-size: 0.92rem; margin-bottom: 0.3rem; }
+        .pub-tldr { color: #555; font-size: 0.95rem; margin-top: 0.3rem; margin-bottom: 0.4rem; }
+        .pub-links a {
+            display: inline-block;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.55rem;
+            margin-right: 0.35rem;
+            margin-top: 0.2rem;
+            border-radius: 3px;
+            background: rgba(48,68,99,0.08);
+            color: #304463;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+        .pub-links a:hover { background: rgba(48,68,99,0.18); }
+        .badge-award {
+            display: inline-block;
+            background: #ffd966;
+            color: #5c4a00;
+            font-size: 0.75rem;
+            padding: 0.08rem 0.45rem;
+            border-radius: 3px;
+            margin-left: 0.4rem;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .timeline { list-style: none; padding-left: 0; }
+        .timeline li { padding: 0.4rem 0; display: flex; gap: 1.2rem; }
+        .timeline .t-date {
+            min-width: 160px; font-weight: 600; color: #4a5568;
+            font-variant-numeric: tabular-nums; font-size: 0.92rem;
+        }
+        .timeline .t-body { flex: 1; }
+        .timeline .t-title { font-weight: 600; }
+        .timeline .t-sub { color: #4a5568; font-size: 0.92rem; }
+
+        .social-row a {
+            margin-right: 0.4rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero-avatar { margin: 0 auto; }
+            .timeline li { flex-direction: column; gap: 0.2rem; }
+            .timeline .t-date { min-width: unset; }
+            .news-date { display: block; min-width: unset; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============ HERO ============ -->
+    <div class="container blog" id="first-content" style="background: linear-gradient(90deg, hsla(210, 30%, 92%, 1) 0%, hsla(30, 50%, 93%, 1) 100%);">
+        <div class="blog-title no-cover">
+            <div class="blog-intro">
+                <div class="hero-flex">
+                    <div class="hero-text">
+                        <h1 class="title">Lan Feng</h1>
+                        <p class="author" style="margin-top: 0.2rem;">
+                            PhD Candidate · <a href="https://www.epfl.ch/labs/vita/">VITA Lab, EPFL</a>
+                        </p>
+                        <p class="abstract" style="margin-top: 0.8rem;">
+                            I build <b>data-centric methods</b> that scale across foundation models — from LLM agents and world models to end-to-end driving. I care about <i>principled data selection</i> (e.g., optimal transport), <i>closed-loop evaluation</i>, and how these push the frontier of post-training and generative world models.
+                            <br><br>
+                            Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Joining <b>NVIDIA Research</b> as a research intern in summer 2026.
+                        </p>
+                        <div class="info social-row">
+                            <div>
+                                <a href="mailto:lan.feng@epfl.ch" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">Email <i class="fa-regular fa-envelope"></i></a>
+                                <a href="https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">Scholar <i class="fa-solid fa-graduation-cap"></i></a>
+                                <a href="https://github.com/Alan-LanFeng" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">GitHub <i class="fa-brands fa-github"></i></a>
+                                <a href="https://x.com/lanfeng491270?s=21" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">X <i class="fa-brands fa-x-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/lan-feng-alan" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                                <a href="assets/cv.pdf" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">CV <i class="fa-regular fa-file-lines"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-avatar">
+                        <img src="assets/figures/avatar.png" alt="Lan Feng">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <div class="container blog main first" id="about">
+        <h1>About</h1>
+        <p class="text">
+            I am a PhD candidate at EPFL, Switzerland, working with <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a> at the VITA Lab. Before EPFL I received my M.Sc. in Robotics, Systems and Control from <b>ETH Zurich</b> and B.E. in Navigation Engineering from <b>Wuhan University</b>.
+        </p>
+        <p class="text">
+            During my master's I worked on human-to-robot handover at the AIT Lab at ETH Zurich with Prof. Otmar Hilliges, in collaboration with <b>NVIDIA</b>. Earlier I worked on generative traffic simulation with <a href="https://boleizhou.github.io/">Prof. Bolei Zhou</a> at <b>UCLA</b>.
+        </p>
+        <p class="text">
+            My current research sits at the intersection of <b>data-centric ML</b>, <b>LLM agents &amp; post-training</b>, <b>world models &amp; video generation</b>, and <b>autonomous driving &amp; robotics</b>. Recent work includes <a href="#rap"><i>RAP</i></a> (scalable 3D rasterization for end-to-end driving, powering the 1st-place Waymo 2025 entry), <a href="#tarot"><i>TAROT</i></a> (optimal-transport data selection, ICML 2025), and <a href="#w4s"><i>Weak-for-Strong</i></a> (training a small meta-agent to orchestrate frontier LLMs).
+        </p>
+        <p class="text">
+            <b>I am actively seeking research roles and collaborations on data-centric post-training, agent evaluation, and world models for robotics/AD.</b> Please reach out if our interests overlap.
+        </p>
+    </div>
+
+    <!-- ============ NEWS ============ -->
+    <div class="container blog main gray" id="news">
+        <h1>News</h1>
+        <ul class="news-list">
+            <li><span class="news-date">Apr 2026</span>🔜 Joining <b>NVIDIA Research</b> as a research intern for summer 2026, working on world models and end-to-end driving.</li>
+            <li><span class="news-date">Jan 2026</span>🎉 <a href="https://alan-lanfeng.github.io/RAP/"><i>RAP</i></a> accepted to <b>ICLR 2026</b>.</li>
+            <li><span class="news-date">Oct 7, 2025</span>🚀 <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented Planning</a> is released — powering the 1st-place Waymo 2025 E2E entry and leading NAVSIM v1/v2 and Bench2Drive leaderboards.</li>
+            <li><span class="news-date">Jun 1, 2025</span>🏆 Won <b>1st place</b> in the 2025 Waymo Open Dataset End-to-End Driving Challenge.</li>
+        </ul>
+    </div>
+
+    <!-- ============ RESEARCH / FEATURED PUBLICATIONS ============ -->
+    <div class="container blog main" id="publications">
+        <h1>Selected Publications</h1>
+        <p class="text" style="margin-bottom: 1.2rem;">
+            <span style="color:#4a5568;">First-author or core contributor unless otherwise noted. <a href="https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en">Full list on Google Scholar</a>.</span>
+        </p>
+
+        <!-- RAP -->
+        <div class="pub-item pub-featured" id="rap">
+            <div class="pub-title">
+                <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented End-to-End Planning</a>
+                <span class="badge-award">🏆 Waymo 2025 E2E 1st Place</span>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Yang Gao, Éloi Zablocki, Quanyi Li, Wuyang Li, Sichao Liu, Matthieu Cord, Alexandre Alahi</div>
+            <div class="pub-venue">ICLR 2026</div>
+            <div class="pub-tldr">Scalable data augmentation for end-to-end driving via lightweight 3D rasterization — recovery-oriented perturbation and cross-agent view synthesis at &gt;500k samples. Leads NAVSIM v1/v2 and Bench2Drive leaderboards.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2510.04333">arXiv</a>
+                <a href="https://alan-lanfeng.github.io/RAP/">Project</a>
+                <a href="https://github.com/vita-epfl/RAP">Code</a>
+            </div>
+        </div>
+
+        <!-- TAROT -->
+        <div class="pub-item pub-featured" id="tarot">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2412.00420">TAROT: Targeted Data Selection via Optimal Transport</a>
+                <span class="badge-award">🏆 nuScenes Prediction #1</span>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Fan Nie, Yuejiang Liu, Alexandre Alahi</div>
+            <div class="pub-venue">ICML 2025</div>
+            <div class="pub-tldr">Optimal-transport framework for selecting training data aligned with a target distribution. More data is not all you need — the <i>right</i> subset beats larger random ones.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2412.00420">arXiv</a>
+                <a href="https://github.com/vita-epfl/TAROT">Code</a>
+            </div>
+        </div>
+
+        <!-- Weak-for-Strong -->
+        <div class="pub-item pub-featured" id="w4s">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2504.04785">Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors</a>
+            </div>
+            <div class="pub-authors">Fan Nie, <span class="me">Lan Feng</span>, Haotian Ye, Weixin Liang, Pan Lu, Huaxiu Yao, Alexandre Alahi, James Zou</div>
+            <div class="pub-venue">COLM 2025 &nbsp;·&nbsp; w/ Stanford</div>
+            <div class="pub-tldr">A small trained meta-agent orchestrates stronger frontier executor models for complex reasoning — specialized planners can unlock capabilities without fine-tuning the frontier model itself.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2504.04785">arXiv</a>
+            </div>
+        </div>
+
+        <!-- UniTraj -->
+        <div class="pub-item pub-featured" id="unitraj">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2403.15098">UniTraj: A Unified Framework for Scalable Vehicle Trajectory Prediction</a>
+                <span class="badge-award">🏆 nuScenes Prediction #1</span>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Mohammadhossein Bahari, Kaouther Messaoud Ben Amor, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
+            <div class="pub-venue">ECCV 2024</div>
+            <div class="pub-tldr">Unifies data formats and models across Waymo, Argoverse, and nuScenes to scale trajectory prediction research; widely adopted by the community.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2403.15098">arXiv</a>
+                <a href="https://github.com/vita-epfl/UniTraj">Code</a>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 2.5rem;">Earlier Work</h2>
+
+        <!-- SynH2R -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2311.05599">SynH2R: Synthesizing Hand-Object Motions for Learning Human-to-Robot Handovers</a>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Sammy Christen, Wei Yang, Yu-Wei Chao, Otmar Hilliges, Jie Song</div>
+            <div class="pub-venue">ICRA 2024 &nbsp;·&nbsp; w/ ETH AIT Lab &amp; NVIDIA</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2311.05599">arXiv</a>
+            </div>
+        </div>
+
+        <!-- OmniTraj -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2507.23657">OmniTraj: Pre-Training on Heterogeneous Data for Adaptive and Zero-Shot Human Trajectory Prediction</a>
+            </div>
+            <div class="pub-authors">Yang Gao, Po-Chien Luan, Kaouther Messaoud, <span class="me">Lan Feng</span>, Alexandre Alahi</div>
+            <div class="pub-venue">arXiv preprint, 2025</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2507.23657">arXiv</a>
+            </div>
+        </div>
+
+        <!-- TrafficGen -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2210.06609">TrafficGen: Learning to Generate Diverse and Realistic Traffic Scenarios</a>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Quanyi Li, Zhenghao Peng, Shuhan Tan, Bolei Zhou</div>
+            <div class="pub-venue">ICRA 2023 &nbsp;·&nbsp; w/ UCLA</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2210.06609">arXiv</a>
+                <a href="https://metadriverse.github.io/trafficgen/">Project</a>
+            </div>
+        </div>
+
+        <!-- ScenarioNet -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2306.12241">ScenarioNet: Open-Source Platform for Large-Scale Traffic Scenario Simulation and Modeling</a>
+            </div>
+            <div class="pub-authors">Quanyi Li, Zhenghao Peng, <span class="me">Lan Feng</span>, Zhizheng Liu, Chenda Duan, Wenjie Mo, Bolei Zhou</div>
+            <div class="pub-venue">NeurIPS 2023</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2306.12241">arXiv</a>
+            </div>
+        </div>
+
+        <!-- MetaDrive -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2109.12674">MetaDrive: Composing Diverse Driving Scenarios for Generalizable RL</a>
+            </div>
+            <div class="pub-authors">Quanyi Li, Zhenghao Peng, <span class="me">Lan Feng</span>, Qihang Zhang, Zhenghai Xue, Bolei Zhou</div>
+            <div class="pub-venue">IEEE TPAMI, 2022</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2109.12674">arXiv</a>
+            </div>
+        </div>
+
+        <!-- Human-AI Shared Control -->
+        <div class="pub-item">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2206.00152">Human-AI Shared Control via Policy Dissection</a>
+            </div>
+            <div class="pub-authors">Quanyi Li, Zhenghao Peng, Haibin Wu, <span class="me">Lan Feng</span>, Bolei Zhou</div>
+            <div class="pub-venue">NeurIPS 2022</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2206.00152">arXiv</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ EXPERIENCE & EDUCATION ============ -->
+    <div class="container blog main gray" id="experience">
+        <h1>Experience &amp; Education</h1>
+
+        <h2>Experience</h2>
+        <ul class="timeline">
+            <li>
+                <span class="t-date">Jun 2026 — Sep 2026</span>
+                <div class="t-body">
+                    <div class="t-title">Research Intern <span style="color:#888; font-weight:400;">(upcoming)</span> · <a href="https://www.nvidia.com/en-us/research/">NVIDIA Research</a></div>
+                    <div class="t-sub">World models and end-to-end driving.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Nov 2023 — now</span>
+                <div class="t-body">
+                    <div class="t-title">Graduate Researcher · <a href="https://www.epfl.ch/labs/vita/">VITA Lab, EPFL</a></div>
+                    <div class="t-sub">Advised by Prof. Alexandre Alahi.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Jan 2020 — Aug 2020</span>
+                <div class="t-body">
+                    <div class="t-title">Trainee Researcher · <a href="https://www.sensetime.com/">SenseTime</a></div>
+                    <div class="t-sub">Learning-based traffic simulation.</div>
+                </div>
+            </li>
+        </ul>
+
+        <h2 style="margin-top: 1.8rem;">Education</h2>
+        <ul class="timeline">
+            <li>
+                <span class="t-date">May 2024 — Apr 2028</span>
+                <div class="t-body">
+                    <div class="t-title">Ph.D. in Robotics · <a href="https://www.epfl.ch/">EPFL</a></div>
+                    <div class="t-sub">Thesis on <i>data selection &amp; curation for foundation models</i>. Advised by Prof. Alexandre Alahi.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Sep 2021 — Oct 2023</span>
+                <div class="t-body">
+                    <div class="t-title">M.Sc. in Robotics, Systems and Control · <a href="https://ethz.ch/">ETH Zurich</a></div>
+                    <div class="t-sub">GPA 5.67/6.0. Master thesis at AIT Lab w/ Prof. Otmar Hilliges and NVIDIA (SynH2R).</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Sep 2016 — May 2020</span>
+                <div class="t-body">
+                    <div class="t-title">B.E. in Navigation Engineering · <a href="https://en.whu.edu.cn/">Wuhan University</a></div>
+                    <div class="t-sub">GPA 3.9/4.0.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ AWARDS ============ -->
+    <div class="container blog main" id="awards">
+        <h1>Awards</h1>
+        <ul class="timeline">
+            <li>
+                <span class="t-date">2025</span>
+                <div class="t-body">
+                    <div class="t-title">🏆 1st Place, Waymo Open Dataset End-to-End Driving Challenge</div>
+                    <div class="t-sub">$10,000 grant. <a href="https://waymo.com/open/challenges/">Waymo Open Challenges</a>.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">2021</span>
+                <div class="t-body">
+                    <div class="t-title">🏆 1st Place, Waymo Interaction Prediction Challenge</div>
+                    <div class="t-sub">$12,000 grant.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">2019</span>
+                <div class="t-body">
+                    <div class="t-title">🎓 China National Scholarship</div>
+                    <div class="t-sub">Awarded for outstanding academic performance.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============ CONTACT ============ -->
+    <div class="container blog main gray" id="contact">
+        <h1>Contact</h1>
+        <p class="text">
+            The best way to reach me is by email at <a href="mailto:lan.feng@epfl.ch"><b>lan.feng@epfl.ch</b></a>. I am based in Lausanne, Switzerland. I also use <a href="https://x.com/lanfeng491270?s=21">X/Twitter</a> and <a href="https://www.linkedin.com/in/lan-feng-alan">LinkedIn</a>.
+        </p>
+        <p class="text">
+            I am especially interested in collaborating on: <i>(i)</i> data curation for LLM post-training, <i>(ii)</i> long-horizon agent evaluation, and <i>(iii)</i> controllable world models for robotics and autonomous driving. If any of these resonate, drop me a line.
+        </p>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="container">
+            <p>
+                Last updated: April 2026. Website built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a> by <a href="https://shikun.io/">Shikun Liu</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="clarity/clarity.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</body>
+</html>
