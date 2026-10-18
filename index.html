@@ -142,7 +142,7 @@
                         <p class="abstract" style="margin-top: 0.8rem;">
                             I build <b>data-centric methods</b> that scale across foundation models — from LLM agents and world models to end-to-end driving. I care about <i>principled data selection</i> (e.g., optimal transport), <i>closed-loop evaluation</i>, and how these push the frontier of post-training and generative world models.
                             <br><br>
-                            Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Joining <b>NVIDIA Research</b> as a research intern in summer 2026.
+                            Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Research intern at <b>NVIDIA Research</b> in 2026, working on world models and end-to-end driving.
                         </p>
                         <div class="info social-row">
                             <div>
@@ -173,7 +173,7 @@
             During my master's I worked on human-to-robot handover at the AIT Lab at ETH Zurich with Prof. Otmar Hilliges, in collaboration with <b>NVIDIA</b>. Earlier I worked on generative traffic simulation with <a href="https://boleizhou.github.io/">Prof. Bolei Zhou</a> at <b>UCLA</b>.
         </p>
         <p class="text">
-            My current research sits at the intersection of <b>data-centric ML</b>, <b>LLM agents &amp; post-training</b>, <b>world models &amp; video generation</b>, and <b>autonomous driving &amp; robotics</b>. Recent work includes <a href="#rap"><i>RAP</i></a> (scalable 3D rasterization for end-to-end driving, powering the 1st-place Waymo 2025 entry), <a href="#tarot"><i>TAROT</i></a> (optimal-transport data selection, ICML 2025), and <a href="#w4s"><i>Weak-for-Strong</i></a> (training a small meta-agent to orchestrate frontier LLMs).
+            My current research sits at the intersection of <b>data-centric ML</b>, <b>LLM agents &amp; post-training</b>, <b>world models &amp; video generation</b>, and <b>autonomous driving &amp; robotics</b>. Recent work includes <a href="#ptd"><i>PTD</i></a> (few-step video generation, from my internship at NVIDIA Research), <a href="#rap"><i>RAP</i></a> (scalable 3D rasterization for end-to-end driving, powering the 1st-place Waymo 2025 entry), <a href="#tarot"><i>TAROT</i></a> (optimal-transport data selection, ICML 2025), and <a href="#w4s"><i>Weak-for-Strong</i></a> (training a small meta-agent to orchestrate frontier LLMs).
         </p>
         <p class="text">
             <b>I am actively seeking research roles and collaborations on data-centric post-training, agent evaluation, and world models for robotics/AD.</b> Please reach out if our interests overlap.
@@ -184,6 +184,7 @@
     <div class="container blog main gray" id="news">
         <h1>News</h1>
         <ul class="news-list">
+            <li><span class="news-date">Oct 2026</span>🚀 <a href="https://arxiv.org/abs/2610.11498"><i>PTD</i></a> is out — few-step video generation by parametric trajectory distillation, from my internship at <b>NVIDIA Research</b>. Four steps set a new trajectory-distillation state of the art on Wan2.1-14B. <a href="https://arxiv.org/abs/2610.11498">arXiv</a>.</li>
             <li><span class="news-date">Jul 2026</span>🚀 <a href="https://alan-lanfeng.github.io/rdm/"><i>RDM</i></a> is out — one-step visual generation by distribution matching, turning four-step FLUX.2 into a single step. <a href="https://alan-lanfeng.github.io/rdm/">Project</a> · <a href="https://huggingface.co/spaces/epfl-vita/flux2-klein-1step-demo">Demo</a>.</li>
             <li><span class="news-date">Apr 2026</span>🔜 Joining <b>NVIDIA Research</b> as a research intern for summer 2026, working on world models and end-to-end driving.</li>
             <li><span class="news-date">Jan 2026</span>🎉 <a href="https://alan-lanfeng.github.io/RAP/"><i>RAP</i></a> accepted to <b>ICLR 2026</b>.</li>
@@ -198,6 +199,19 @@
         <p class="text" style="margin-bottom: 1.2rem;">
             <span style="color:#4a5568;">First-author or core contributor unless otherwise noted. <a href="https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en">Full list on Google Scholar</a>.</span>
         </p>
+
+        <!-- PTD -->
+        <div class="pub-item pub-featured" id="ptd">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2610.11498">Parametric Trajectory Distillation for Few-Step Video Generation</a>
+            </div>
+            <div class="pub-authors"><span class="me">Lan Feng</span>, Peter Karkus, Maximilian Igl, Julius Berner, Yuxiao Chen, Shuhan Tan, Alexandre Alahi, Boris Ivanovic, Marco Pavone</div>
+            <div class="pub-venue">arXiv 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
+            <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. Four steps set a new trajectory-distillation state of the art on Wan2.1-14B, and LoRA-only distillation of the 33B audio-video MiniMax-H3 keeps more motion and diversity than DMD-style methods.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2610.11498">arXiv</a>
+            </div>
+        </div>
 
         <!-- RDM -->
         <div class="pub-item pub-featured" id="rdm">
@@ -359,8 +373,8 @@
             <li>
                 <span class="t-date">Jun 2026 — Sep 2026</span>
                 <div class="t-body">
-                    <div class="t-title">Research Intern <span style="color:#888; font-weight:400;">(upcoming)</span> · <a href="https://www.nvidia.com/en-us/research/">NVIDIA Research</a></div>
-                    <div class="t-sub">World models and end-to-end driving.</div>
+                    <div class="t-title">Research Intern · <a href="https://www.nvidia.com/en-us/research/">NVIDIA Research</a></div>
+                    <div class="t-sub">Autonomous Vehicle Research Group, Zurich. Few-step video generation for world models (<a href="#ptd">PTD</a>) and end-to-end driving. Worked with Peter Karkus, Boris Ivanovic and Marco Pavone.</div>
                 </div>
             </li>
             <li>
@@ -448,7 +462,7 @@
     <footer>
         <div class="container">
             <p>
-                Last updated: April 2026. Website built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a> by <a href="https://shikun.io/">Shikun Liu</a>.
+                Last updated: October 2026. Website built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a> by <a href="https://shikun.io/">Shikun Liu</a>.
             </p>
         </div>
     </footer>
