@@ -4,14 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lan Feng — PhD Candidate, EPFL</title>
-    <meta name="description" content="Lan Feng is a PhD candidate at EPFL working on data-centric methods for foundation models, LLM agents, and world models.">
+    <meta name="description" content="Lan Feng is a PhD candidate at EPFL working on generative models and world models for physical AI.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="robots" content="all">
     <meta content="en_EN" property="og:locale">
     <meta content="website" property="og:type">
     <meta content="https://alan-lanfeng.github.io" property="og:url">
     <meta content="Lan Feng" property="og:title">
-    <meta content="PhD Candidate at EPFL. Data-centric methods for foundation models, LLM agents, world models." property="og:description">
+    <meta content="PhD Candidate at EPFL. Generative models and world models for physical AI." property="og:description">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Lan Feng — PhD Candidate, EPFL">
@@ -140,9 +140,9 @@
                             PhD Candidate · <a href="https://www.epfl.ch/labs/vita/">VITA Lab, EPFL</a>
                         </p>
                         <p class="abstract" style="margin-top: 0.8rem;">
-                            I build <b>data-centric methods</b> that scale across foundation models — from LLM agents and world models to end-to-end driving. I care about <i>principled data selection</i> (e.g., optimal transport), <i>closed-loop evaluation</i>, and how these push the frontier of post-training and generative world models.
+                            I work on <b>generative models</b> and <b>world models</b> for <b>physical AI</b>. Physical AI is limited by the cost of the experience it learns from, and my research lowers that cost: generating images and video in one to four steps (<a href="#rdm"><i>RDM</i></a>, <a href="#ptd"><i>PTD</i></a>), and choosing which data is worth generating and training on (<a href="#tarot"><i>TAROT</i></a>).
                             <br><br>
-                            Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Research intern at <b>NVIDIA Research</b> in 2026, working on world models and end-to-end driving.
+                            Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Research intern at <b>NVIDIA Research</b> in 2026, working on few-step video generation for world models.
                         </p>
                         <div class="info social-row">
                             <div>
@@ -170,13 +170,13 @@
             I am a PhD candidate at EPFL, Switzerland, working with <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a> at the VITA Lab. Before EPFL I received my M.Sc. in Robotics, Systems and Control from <b>ETH Zurich</b> and B.E. in Navigation Engineering from <b>Wuhan University</b>.
         </p>
         <p class="text">
-            During my master's I worked on human-to-robot handover at the AIT Lab at ETH Zurich with Prof. Otmar Hilliges, in collaboration with <b>NVIDIA</b>. Earlier I worked on generative traffic simulation with <a href="https://boleizhou.github.io/">Prof. Bolei Zhou</a> at <b>UCLA</b>.
+            I have built synthetic training data for physical AI since before my PhD. My master's thesis at the AIT Lab at ETH Zurich, with Prof. Otmar Hilliges and <b>NVIDIA</b>, trained robot handovers on synthetic hand-object motions. Earlier, with <a href="https://boleizhou.github.io/">Prof. Bolei Zhou</a> at <b>UCLA</b>, I worked on generative simulation for reinforcement learning.
         </p>
         <p class="text">
-            My current research sits at the intersection of <b>data-centric ML</b>, <b>LLM agents &amp; post-training</b>, <b>world models &amp; video generation</b>, and <b>autonomous driving &amp; robotics</b>. Recent work includes <a href="#ptd"><i>PTD</i></a> (few-step video generation, from my internship at NVIDIA Research), <a href="#rap"><i>RAP</i></a> (scalable 3D rasterization for end-to-end driving, powering the 1st-place Waymo 2025 entry), <a href="#tarot"><i>TAROT</i></a> (optimal-transport data selection, ICML 2025), and <a href="#w4s"><i>Weak-for-Strong</i></a> (training a small meta-agent to orchestrate frontier LLMs).
+            My current research makes generation itself cheap. <a href="#rdm"><i>RDM</i></a> trains one-step generators by matching feature distributions under frozen encoders, and turns the four-step FLUX.2 [klein] into a one-step model that beats its teacher. <a href="#ptd"><i>PTD</i></a>, from my internship at <b>NVIDIA Research</b>, distills the 33B audio-video model MiniMax-H3 into a four-step generator with LoRA alone, and keeps more of its motion and diversity than DMD-style distillation. On the data side, <a href="#tarot"><i>TAROT</i></a> (ICML 2025) selects training data with optimal transport, and <a href="#rap"><i>RAP</i></a> (ICLR 2026) shows that policies can be trained on cheap 3D rasterizations instead of photorealistic renders.
         </p>
         <p class="text">
-            <b>I am actively seeking research roles and collaborations on data-centric post-training, agent evaluation, and world models for robotics/AD.</b> Please reach out if our interests overlap.
+            Next, I am combining these into world models that are fast enough for closed-loop training and that generate the situations a policy fails on. <b>I am actively seeking research roles and collaborations on generative models, world models, and physical AI.</b> Please reach out if our interests overlap.
         </p>
     </div>
 
@@ -184,9 +184,9 @@
     <div class="container blog main gray" id="news">
         <h1>News</h1>
         <ul class="news-list">
-            <li><span class="news-date">Oct 2026</span>🚀 <a href="https://arxiv.org/abs/2610.11498"><i>PTD</i></a> is out — few-step video generation by parametric trajectory distillation, from my internship at <b>NVIDIA Research</b>. Four steps set a new trajectory-distillation state of the art on Wan2.1-14B. <a href="https://arxiv.org/abs/2610.11498">arXiv</a>.</li>
+            <li><span class="news-date">Oct 2026</span>🚀 <a href="https://arxiv.org/abs/2610.11498"><i>PTD</i></a> is out — few-step video generation by parametric trajectory distillation, from my internship at <b>NVIDIA Research</b>. Four-step generation for the 33B audio-video MiniMax-H3, trained with LoRA alone. <a href="https://arxiv.org/abs/2610.11498">arXiv</a>.</li>
             <li><span class="news-date">Jul 2026</span>🚀 <a href="https://alan-lanfeng.github.io/rdm/"><i>RDM</i></a> is out — one-step visual generation by distribution matching, turning four-step FLUX.2 into a single step. <a href="https://alan-lanfeng.github.io/rdm/">Project</a> · <a href="https://huggingface.co/spaces/epfl-vita/flux2-klein-1step-demo">Demo</a>.</li>
-            <li><span class="news-date">Apr 2026</span>🔜 Joining <b>NVIDIA Research</b> as a research intern for summer 2026, working on world models and end-to-end driving.</li>
+            <li><span class="news-date">Apr 2026</span>🔜 Joining <b>NVIDIA Research</b> as a research intern for summer 2026, working on world models.</li>
             <li><span class="news-date">Jan 2026</span>🎉 <a href="https://alan-lanfeng.github.io/RAP/"><i>RAP</i></a> accepted to <b>ICLR 2026</b>.</li>
             <li><span class="news-date">Oct 7, 2025</span>🚀 <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented Planning</a> is released — powering the 1st-place Waymo 2025 E2E entry and leading NAVSIM v1/v2 and Bench2Drive leaderboards.</li>
             <li><span class="news-date">Jun 1, 2025</span>🏆 Won <b>1st place</b> in the 2025 Waymo Open Dataset End-to-End Driving Challenge.</li>
@@ -207,7 +207,7 @@
             </div>
             <div class="pub-authors"><span class="me">Lan Feng</span>, Peter Karkus, Maximilian Igl, Julius Berner, Yuxiao Chen, Shuhan Tan, Alexandre Alahi, Boris Ivanovic, Marco Pavone</div>
             <div class="pub-venue">arXiv 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
-            <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. Four steps set a new trajectory-distillation state of the art on Wan2.1-14B, and LoRA-only distillation of the 33B audio-video MiniMax-H3 keeps more motion and diversity than DMD-style methods.</div>
+            <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. On the 33B audio-video MiniMax-H3, four-step PTD trained with LoRA alone keeps more motion and diversity than DMD-style distillation, and wins 55.1% and 63.4% of blinded human votes against PDD and LightX2V Turbo.</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2610.11498">arXiv</a>
             </div>
@@ -374,7 +374,7 @@
                 <span class="t-date">Jun 2026 — Sep 2026</span>
                 <div class="t-body">
                     <div class="t-title">Research Intern · <a href="https://www.nvidia.com/en-us/research/">NVIDIA Research</a></div>
-                    <div class="t-sub">Autonomous Vehicle Research Group, Zurich. Few-step video generation for world models (<a href="#ptd">PTD</a>) and end-to-end driving. Worked with Peter Karkus, Boris Ivanovic and Marco Pavone.</div>
+                    <div class="t-sub">Autonomous Vehicle Research Group, Zurich. Few-step video generation for world models (<a href="#ptd">PTD</a>). Worked with Peter Karkus, Boris Ivanovic and Marco Pavone.</div>
                 </div>
             </li>
             <li>
@@ -454,7 +454,7 @@
             The best way to reach me is by email at <a href="mailto:lan.feng@epfl.ch"><b>lan.feng@epfl.ch</b></a>. I am based in Lausanne, Switzerland. I also use <a href="https://x.com/lanfeng491270?s=21">X/Twitter</a> and <a href="https://www.linkedin.com/in/lan-feng-alan">LinkedIn</a>.
         </p>
         <p class="text">
-            I am especially interested in collaborating on: <i>(i)</i> data curation for LLM post-training, <i>(ii)</i> long-horizon agent evaluation, and <i>(iii)</i> controllable world models for robotics and autonomous driving. If any of these resonate, drop me a line.
+            I am especially interested in collaborating on: <i>(i)</i> one- and few-step image and video generation, <i>(ii)</i> world models that generate training experience for physical AI, and <i>(iii)</i> choosing which data to generate and train on. If any of these resonate, drop me a line.
         </p>
     </div>
 
