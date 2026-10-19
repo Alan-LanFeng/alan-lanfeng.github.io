@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lan Feng — PhD Candidate, EPFL</title>
+    <title>Lan Feng · Generative Models &amp; World Models · EPFL</title>
     <meta name="description" content="Lan Feng is a PhD candidate at EPFL working on generative models and world models for physical AI.">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="robots" content="all">
@@ -13,20 +13,43 @@
     <meta content="Lan Feng" property="og:title">
     <meta content="PhD Candidate at EPFL. Generative models and world models for physical AI." property="og:description">
 
+    <meta content="https://alan-lanfeng.github.io/assets/media/social-card.jpg" property="og:image">
+    <meta content="1200" property="og:image:width">
+    <meta content="630" property="og:image:height">
+    <meta content="Video and image samples from PTD and RDM" property="og:image:alt">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Lan Feng — PhD Candidate, EPFL">
+    <meta name="twitter:title" content="Lan Feng">
+    <meta name="twitter:description" content="Generative models and world models for physical AI. PhD candidate at EPFL.">
+    <meta name="twitter:image" content="https://alan-lanfeng.github.io/assets/media/social-card.jpg">
+    <link rel="canonical" href="https://alan-lanfeng.github.io/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lan Feng",
+        "url": "https://alan-lanfeng.github.io/",
+        "image": "https://alan-lanfeng.github.io/assets/figures/avatar.jpg",
+        "jobTitle": "PhD Candidate",
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "EPFL" },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "ETH Zurich" },
+            { "@type": "CollegeOrUniversity", "name": "Wuhan University" }
+        ],
+        "knowsAbout": ["Generative models", "World models", "Physical AI", "Video generation", "Diffusion distillation"],
+        "email": "mailto:lan.feng@epfl.ch",
+        "sameAs": [
+            "https://scholar.google.com/citations?user=8-QJ-kkAAAAJ",
+            "https://github.com/Alan-LanFeng",
+            "https://www.linkedin.com/in/lan-feng-alan",
+            "https://x.com/lanfeng491270"
+        ]
+    }
+    </script>
 
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css" />
     <link rel="stylesheet" type="text/css" media="all" href="clarity/clarity.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
     <link href="assets/fontawesome-free-7.2.0-web/css/all.min.css" rel="stylesheet">
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            "HTML-CSS": { scale: 95, fonts: ["Gyre-Pagella"], imageFont: null, undefinedFamily: "'Arial Unicode MS', cmbright" },
-            tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]], processEscapes: true }
-        });
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
@@ -119,6 +142,28 @@
             margin-right: 0.4rem;
         }
 
+        .availability { margin-top: 0.9rem; font-size: 0.92rem; color: #304463; }
+        .availability i { margin-right: 0.3rem; }
+
+        h2.pub-group { margin-top: 2.2rem; margin-bottom: 0.9rem; }
+        .pub-item.has-media { display: grid; grid-template-columns: 200px 1fr; gap: 1.1rem; align-items: start; }
+        .pub-media {
+            position: relative; display: block; aspect-ratio: 16 / 9;
+            border-radius: 6px; overflow: hidden; background: #dfe4ea;
+        }
+        .pub-media img, .pub-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .pub-media .cap {
+            position: absolute; bottom: 0.35rem; padding: 0.05rem 0.4rem; border-radius: 3px;
+            font-size: 0.7rem; font-weight: 600; color: #fff; background: rgba(0,0,0,0.55);
+        }
+        .pub-media .cap.l { left: 0.35rem; }
+        .pub-media .cap.r { right: 0.35rem; }
+        .pub-links .stars { opacity: 0.75; margin-left: 0.15rem; }
+
+        @media (max-width: 700px) {
+            .pub-item.has-media { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 600px) {
             .hero-avatar { margin: 0 auto; }
             .timeline li { flex-direction: column; gap: 0.2rem; }
@@ -144,6 +189,9 @@
                             <br><br>
                             Advised by <a href="https://people.epfl.ch/alexandre.alahi">Prof. Alexandre Alahi</a>. Research intern at <b>NVIDIA Research</b> in 2026, working on few-step video generation for world models.
                         </p>
+                        <p class="availability">
+                            <i class="fa-solid fa-location-dot"></i> Zurich, Switzerland &nbsp;·&nbsp; Open to research internships from April 2027 &nbsp;·&nbsp; PhD expected 2028
+                        </p>
                         <div class="info social-row">
                             <div>
                                 <a href="mailto:lan.feng@epfl.ch" class="button icon" style="background-color: rgba(255, 255, 255, 0.35)">Email <i class="fa-regular fa-envelope"></i></a>
@@ -156,7 +204,7 @@
                         </div>
                     </div>
                     <div class="hero-avatar">
-                        <img src="assets/figures/avatar.png" alt="Lan Feng">
+                        <img src="assets/figures/avatar.jpg" alt="Lan Feng" width="200" height="200">
                     </div>
                 </div>
             </div>
@@ -173,7 +221,7 @@
             I have built synthetic training data for physical AI since before my PhD. My master's thesis at the AIT Lab at ETH Zurich, with Prof. Otmar Hilliges and <b>NVIDIA</b>, trained robot handovers on synthetic hand-object motions. Earlier, with <a href="https://boleizhou.github.io/">Prof. Bolei Zhou</a> at <b>UCLA</b>, I worked on generative simulation for reinforcement learning.
         </p>
         <p class="text">
-            My current research makes generation itself cheap. <a href="#rdm"><i>RDM</i></a> trains one-step generators by matching feature distributions under frozen encoders, and turns the four-step FLUX.2 [klein] into a one-step model that beats its teacher. <a href="#ptd"><i>PTD</i></a>, from my internship at <b>NVIDIA Research</b>, distills the 33B audio-video model MiniMax-H3 into a four-step generator with LoRA alone, and keeps more of its motion and diversity than DMD-style distillation. On the data side, <a href="#tarot"><i>TAROT</i></a> (ICML 2025) selects training data with optimal transport, and <a href="#rap"><i>RAP</i></a> (ICLR 2026) shows that policies can be trained on cheap 3D rasterizations instead of photorealistic renders.
+            My current research makes generation itself cheap. <a href="#rdm"><i>RDM</i></a> trains one-step generators by matching feature distributions under frozen encoders, and turns the four-step FLUX.2 [klein] into a one-step model that beats its teacher. <a href="#ptd"><i>PTD</i></a>, from my internship at <b>NVIDIA Research</b>, distills the 33B audio-video model MiniMax-H3 into a four-step generator with LoRA alone, and keeps more of its motion and diversity than DMD-style distillation. On the data side, <a href="#tarot"><i>TAROT</i></a> (ICML 2025) selects training data with optimal transport, and <a href="#rap"><i>RAP</i></a> (ICLR 2026) shows that policies can be trained on cheap 3D rasterizations instead of photorealistic renders. I have also worked on minute-long human animation (<a href="#everanimate"><i>EverAnimate</i></a>, NeurIPS 2026) and on world models that let a robot plan toward goals given in language (<a href="#gwm"><i>Grounded World Model</i></a>).
         </p>
         <p class="text">
             Next, I am combining these into world models that are fast enough for closed-loop training and that generate the situations a policy fails on. <b>I am actively seeking research roles and collaborations on generative models, world models, and physical AI.</b> Please reach out if our interests overlap.
@@ -184,7 +232,7 @@
     <div class="container blog main gray" id="news">
         <h1>News</h1>
         <ul class="news-list">
-            <li><span class="news-date">Oct 2026</span>🚀 <a href="https://arxiv.org/abs/2610.11498"><i>PTD</i></a> is out — few-step video generation by parametric trajectory distillation, from my internship at <b>NVIDIA Research</b>. Four-step generation for the 33B audio-video MiniMax-H3, trained with LoRA alone. <a href="https://arxiv.org/abs/2610.11498">arXiv</a>.</li>
+            <li><span class="news-date">Oct 2026</span>🚀 <a href="https://alan-lanfeng.github.io/PTD/"><i>PTD</i></a> is out — few-step video generation by parametric trajectory distillation, from my internship at <b>NVIDIA Research</b>. Four-step generation for the 33B audio-video MiniMax-H3, trained with LoRA alone. <a href="https://alan-lanfeng.github.io/PTD/">Project</a> · <a href="https://arxiv.org/abs/2610.11498">arXiv</a>.</li>
             <li><span class="news-date">Jul 2026</span>🚀 <a href="https://alan-lanfeng.github.io/rdm/"><i>RDM</i></a> is out — one-step visual generation by distribution matching, turning four-step FLUX.2 into a single step. <a href="https://alan-lanfeng.github.io/rdm/">Project</a> · <a href="https://huggingface.co/spaces/epfl-vita/flux2-klein-1step-demo">Demo</a>.</li>
             <li><span class="news-date">Apr 2026</span>🔜 Joining <b>NVIDIA Research</b> as a research intern for summer 2026, working on world models.</li>
             <li><span class="news-date">Jan 2026</span>🎉 <a href="https://alan-lanfeng.github.io/RAP/"><i>RAP</i></a> accepted to <b>ICLR 2026</b>.</li>
@@ -197,51 +245,100 @@
     <div class="container blog main" id="publications">
         <h1>Selected Publications</h1>
         <p class="text" style="margin-bottom: 1.2rem;">
-            <span style="color:#4a5568;">First-author or core contributor unless otherwise noted. <a href="https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en">Full list on Google Scholar</a>.</span>
+            <span style="color:#4a5568;">First-author or core contributor unless otherwise noted; * equal contribution. <a href="https://scholar.google.com/citations?user=8-QJ-kkAAAAJ&hl=en">Full list on Google Scholar</a>.</span>
         </p>
 
+        <h2 class="pub-group">Generative models</h2>
+
         <!-- PTD -->
-        <div class="pub-item pub-featured" id="ptd">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2610.11498">Parametric Trajectory Distillation for Few-Step Video Generation</a>
-            </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Peter Karkus, Maximilian Igl, Julius Berner, Yuxiao Chen, Shuhan Tan, Alexandre Alahi, Boris Ivanovic, Marco Pavone</div>
-            <div class="pub-venue">arXiv 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
-            <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. On the 33B audio-video MiniMax-H3, four-step PTD trained with LoRA alone keeps more motion and diversity than DMD-style distillation, and wins 55.1% and 63.4% of blinded human votes against PDD and LightX2V Turbo.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2610.11498">arXiv</a>
+        <div class="pub-item pub-featured has-media" id="ptd">
+            <a class="pub-media" href="https://alan-lanfeng.github.io/PTD/" aria-label="PTD project page">
+                <video data-src="assets/media/ptd-teaser.mp4" poster="assets/media/ptd-teaser.jpg" muted loop playsinline preload="none" width="640" height="360"></video>
+                <span class="cap r">4 steps</span>
+            </a>
+            <div class="pub-body">
+                <div class="pub-title">
+                    <a href="https://alan-lanfeng.github.io/PTD/">Parametric Trajectory Distillation for Few-Step Video Generation</a>
+                </div>
+                <div class="pub-authors"><span class="me">Lan Feng</span>, Peter Karkus, Maximilian Igl, Julius Berner, Yuxiao Chen, Shuhan Tan, Alexandre Alahi, Boris Ivanovic, Marco Pavone</div>
+                <div class="pub-venue">arXiv 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
+                <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. On the 33B audio-video MiniMax-H3, four-step PTD trained with LoRA alone keeps more motion and diversity than DMD-style distillation, and wins 55.1% and 63.4% of blinded human votes against PDD and LightX2V Turbo.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2610.11498">arXiv</a>
+                    <a href="https://alan-lanfeng.github.io/PTD/">Project</a>
+                </div>
             </div>
         </div>
 
         <!-- RDM -->
-        <div class="pub-item pub-featured" id="rdm">
-            <div class="pub-title">
-                <a href="https://alan-lanfeng.github.io/rdm/">Representation Distribution Matching for One-Step Visual Generation</a>
+        <div class="pub-item pub-featured has-media" id="rdm">
+            <a class="pub-media" href="https://alan-lanfeng.github.io/rdm/" aria-label="RDM project page">
+                <img src="assets/media/rdm-teaser.jpg" alt="The same prompt generated by the four-step FLUX.2 [klein] teacher and by the one-step RDM student" loading="lazy" width="640" height="360">
+                <span class="cap l">4 steps (teacher)</span><span class="cap r">1 step (RDM)</span>
+            </a>
+            <div class="pub-body">
+                <div class="pub-title">
+                    <a href="https://alan-lanfeng.github.io/rdm/">Representation Distribution Matching for One-Step Visual Generation</a>
+                </div>
+                <div class="pub-authors"><span class="me">Lan Feng</span>, Wuyang Li, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
+                <div class="pub-venue">arXiv 2026</div>
+                <div class="pub-tldr">A one-step image generator trained by matching feature distributions under frozen encoders — no online teacher, adversary, trajectory, or JVP. Sets the one-step ImageNet state of the art, and post-trains four-step FLUX.2 [klein] into a single step that surpasses its teacher.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2607.02375">arXiv</a>
+                    <a href="https://alan-lanfeng.github.io/rdm/">Project</a>
+                    <a href="https://github.com/vita-epfl/RDM">Code <span class="stars">★ 80+</span></a>
+                    <a href="https://huggingface.co/spaces/epfl-vita/flux2-klein-1step-demo">Demo</a>
+                </div>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Wuyang Li, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
-            <div class="pub-venue">arXiv 2026</div>
-            <div class="pub-tldr">A one-step image generator trained by matching feature distributions under frozen encoders — no online teacher, adversary, trajectory, or JVP. Sets the one-step ImageNet state of the art, and post-trains four-step FLUX.2 [klein] into a single step that surpasses its teacher.</div>
+        </div>
+
+        <!-- EverAnimate -->
+        <div class="pub-item pub-featured" id="everanimate">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2605.15042">EverAnimate: Minute-Scale Human Animation via Latent Flow Restoration</a>
+            </div>
+            <div class="pub-authors">Wuyang Li, Yang Gao, Mariam Hassan, <span class="me">Lan Feng</span>, Wentao Pan, Po-Chien Luan, Alexandre Alahi</div>
+            <div class="pub-venue">NeurIPS 2026</div>
+            <div class="pub-tldr">Minute-long human animation without drift: a persistent latent memory carries identity and motion across chunks, and restorative flow matching refines each chunk during sampling, with LoRA tuning only.</div>
             <div class="pub-links">
-                <a href="https://arxiv.org/abs/2607.02375">arXiv</a>
-                <a href="https://alan-lanfeng.github.io/rdm/">Project</a>
-                <a href="https://github.com/vita-epfl/RDM">Code</a>
-                <a href="https://huggingface.co/spaces/epfl-vita/flux2-klein-1step-demo">Demo</a>
+                <a href="https://arxiv.org/abs/2605.15042">arXiv</a>
+            </div>
+        </div>
+
+        <h2 class="pub-group">World models and data for physical AI</h2>
+
+        <!-- Grounded World Model -->
+        <div class="pub-item pub-featured" id="gwm">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2604.11751">Grounded World Model: Latent Planning with Language Goals</a>
+            </div>
+            <div class="pub-authors">Quanyi Li, <span class="me">Lan Feng</span>, Haonan Zhang, Wuyang Li, Letian Wang, Alexandre Alahi, Harold Soh</div>
+            <div class="pub-venue">arXiv 2026</div>
+            <div class="pub-tldr">A latent world model that imagines the outcome of candidate actions and scores it against a language instruction in a shared vision-language space, so a robot can plan toward goals given in words. Solves 87% of 288 tasks with unseen instructions, against 22% on average for ten fine-tuned VLA models.</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2604.11751">arXiv</a>
             </div>
         </div>
 
         <!-- RAP -->
-        <div class="pub-item pub-featured" id="rap">
-            <div class="pub-title">
-                <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented End-to-End Planning</a>
-                <span class="badge-award">🏆 Waymo 2025 E2E 1st Place</span>
-            </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Yang Gao, Éloi Zablocki, Quanyi Li, Wuyang Li, Sichao Liu, Matthieu Cord, Alexandre Alahi</div>
-            <div class="pub-venue">ICLR 2026</div>
-            <div class="pub-tldr">Scalable data augmentation for end-to-end driving via lightweight 3D rasterization — recovery-oriented perturbation and cross-agent view synthesis at &gt;500k samples. Leads NAVSIM v1/v2 and Bench2Drive leaderboards.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2510.04333">arXiv</a>
-                <a href="https://alan-lanfeng.github.io/RAP/">Project</a>
-                <a href="https://github.com/vita-epfl/RAP">Code</a>
+        <div class="pub-item pub-featured has-media" id="rap">
+            <a class="pub-media" href="https://alan-lanfeng.github.io/RAP/" aria-label="RAP project page">
+                <img src="assets/media/rap-teaser.jpg" alt="A camera frame from a driving log next to the matching lightweight 3D rasterization" loading="lazy" width="640" height="360">
+                <span class="cap l">camera</span><span class="cap r">3D raster</span>
+            </a>
+            <div class="pub-body">
+                <div class="pub-title">
+                    <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented End-to-End Planning</a>
+                    <span class="badge-award">🏆 Waymo 2025 E2E 1st Place</span>
+                </div>
+                <div class="pub-authors"><span class="me">Lan Feng</span>, Yang Gao, Éloi Zablocki, Quanyi Li, Wuyang Li, Sichao Liu, Matthieu Cord, Alexandre Alahi</div>
+                <div class="pub-venue">ICLR 2026</div>
+                <div class="pub-tldr">Scalable data augmentation for end-to-end driving via lightweight 3D rasterization — recovery-oriented perturbation and cross-agent view synthesis at &gt;500k samples. Leads NAVSIM v1/v2 and Bench2Drive leaderboards.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2510.04333">arXiv</a>
+                    <a href="https://alan-lanfeng.github.io/RAP/">Project</a>
+                    <a href="https://github.com/vita-epfl/RAP">Code <span class="stars">★ 160+</span></a>
+                </div>
             </div>
         </div>
 
@@ -251,25 +348,12 @@
                 <a href="https://arxiv.org/abs/2412.00420">TAROT: Targeted Data Selection via Optimal Transport</a>
                 <span class="badge-award">🏆 nuScenes Prediction #1</span>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Fan Nie, Yuejiang Liu, Alexandre Alahi</div>
+            <div class="pub-authors"><span class="me">Lan Feng*</span>, Fan Nie*, Yuejiang Liu, Alexandre Alahi</div>
             <div class="pub-venue">ICML 2025</div>
             <div class="pub-tldr">Optimal-transport framework for selecting training data aligned with a target distribution. More data is not all you need — the <i>right</i> subset beats larger random ones.</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2412.00420">arXiv</a>
                 <a href="https://github.com/vita-epfl/TAROT">Code</a>
-            </div>
-        </div>
-
-        <!-- Weak-for-Strong -->
-        <div class="pub-item pub-featured" id="w4s">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2504.04785">Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors</a>
-            </div>
-            <div class="pub-authors">Fan Nie, <span class="me">Lan Feng</span>, Haotian Ye, Weixin Liang, Pan Lu, Huaxiu Yao, Alexandre Alahi, James Zou</div>
-            <div class="pub-venue">COLM 2025 &nbsp;·&nbsp; w/ Stanford</div>
-            <div class="pub-tldr">A small trained meta-agent orchestrates stronger frontier executor models for complex reasoning — specialized planners can unlock capabilities without fine-tuning the frontier model itself.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2504.04785">arXiv</a>
             </div>
         </div>
 
@@ -279,23 +363,35 @@
                 <a href="https://arxiv.org/abs/2403.15098">UniTraj: A Unified Framework for Scalable Vehicle Trajectory Prediction</a>
                 <span class="badge-award">🏆 nuScenes Prediction #1</span>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Mohammadhossein Bahari, Kaouther Messaoud Ben Amor, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
+            <div class="pub-authors"><span class="me">Lan Feng*</span>, Mohammadhossein Bahari*, Kaouther Messaoud Ben Amor, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
             <div class="pub-venue">ECCV 2024</div>
             <div class="pub-tldr">Unifies data formats and models across Waymo, Argoverse, and nuScenes to scale trajectory prediction research; widely adopted by the community.</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2403.15098">arXiv</a>
-                <a href="https://github.com/vita-epfl/UniTraj">Code</a>
+                <a href="https://github.com/vita-epfl/UniTraj">Code <span class="stars">★ 490+</span></a>
             </div>
         </div>
 
-        <h2 style="margin-top: 2.5rem;">Earlier Work</h2>
+        <h2 class="pub-group">Earlier work</h2>
+
+        <!-- Weak-for-Strong -->
+        <div class="pub-item" id="w4s">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2504.04785">Weak-for-Strong: Training Weak Meta-Agent to Harness Strong Executors</a>
+            </div>
+            <div class="pub-authors">Fan Nie, <span class="me">Lan Feng</span>, Haotian Ye, Weixin Liang, Pan Lu, Huaxiu Yao, Alexandre Alahi, James Zou</div>
+            <div class="pub-venue">COLM 2025 &nbsp;·&nbsp; w/ Stanford</div>
+            <div class="pub-links">
+                <a href="https://arxiv.org/abs/2504.04785">arXiv</a>
+            </div>
+        </div>
 
         <!-- SynH2R -->
         <div class="pub-item">
             <div class="pub-title">
                 <a href="https://arxiv.org/abs/2311.05599">SynH2R: Synthesizing Hand-Object Motions for Learning Human-to-Robot Handovers</a>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Sammy Christen, Wei Yang, Yu-Wei Chao, Otmar Hilliges, Jie Song</div>
+            <div class="pub-authors"><span class="me">Lan Feng*</span>, Sammy Christen*, Wei Yang, Yu-Wei Chao, Otmar Hilliges, Jie Song</div>
             <div class="pub-venue">ICRA 2024 &nbsp;·&nbsp; w/ ETH AIT Lab &amp; NVIDIA</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2311.05599">arXiv</a>
@@ -319,11 +415,12 @@
             <div class="pub-title">
                 <a href="https://arxiv.org/abs/2210.06609">TrafficGen: Learning to Generate Diverse and Realistic Traffic Scenarios</a>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng</span>, Quanyi Li, Zhenghao Peng, Shuhan Tan, Bolei Zhou</div>
+            <div class="pub-authors"><span class="me">Lan Feng*</span>, Quanyi Li*, Zhenghao Peng*, Shuhan Tan, Bolei Zhou</div>
             <div class="pub-venue">ICRA 2023 &nbsp;·&nbsp; w/ UCLA</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2210.06609">arXiv</a>
                 <a href="https://metadriverse.github.io/trafficgen/">Project</a>
+                <a href="https://github.com/metadriverse/trafficgen">Code <span class="stars">★ 200+</span></a>
             </div>
         </div>
 
@@ -332,10 +429,11 @@
             <div class="pub-title">
                 <a href="https://arxiv.org/abs/2306.12241">ScenarioNet: Open-Source Platform for Large-Scale Traffic Scenario Simulation and Modeling</a>
             </div>
-            <div class="pub-authors">Quanyi Li, Zhenghao Peng, <span class="me">Lan Feng</span>, Zhizheng Liu, Chenda Duan, Wenjie Mo, Bolei Zhou</div>
+            <div class="pub-authors">Quanyi Li*, Zhenghao Peng*, <span class="me">Lan Feng*</span>, Zhizheng Liu, Chenda Duan, Wenjie Mo, Bolei Zhou</div>
             <div class="pub-venue">NeurIPS 2023</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2306.12241">arXiv</a>
+                <a href="https://github.com/metadriverse/scenarionet">Code <span class="stars">★ 300+</span></a>
             </div>
         </div>
 
@@ -348,6 +446,7 @@
             <div class="pub-venue">IEEE TPAMI, 2022</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2109.12674">arXiv</a>
+                <a href="https://github.com/metadriverse/metadrive">Code <span class="stars">★ 1.2k+</span></a>
             </div>
         </div>
 
@@ -382,6 +481,20 @@
                 <div class="t-body">
                     <div class="t-title">Graduate Researcher · <a href="https://www.epfl.ch/labs/vita/">VITA Lab, EPFL</a></div>
                     <div class="t-sub">Advised by Prof. Alexandre Alahi.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Feb 2022 — Sep 2023</span>
+                <div class="t-body">
+                    <div class="t-title">Research Assistant · <a href="https://ait.ethz.ch/">AIT Lab, ETH Zurich</a></div>
+                    <div class="t-sub">RL for dexterous grasping; master's thesis on human-to-robot handovers with NVIDIA (SynH2R). Advised by Prof. Otmar Hilliges.</div>
+                </div>
+            </li>
+            <li>
+                <span class="t-date">Nov 2020 — Aug 2021</span>
+                <div class="t-body">
+                    <div class="t-title">Research Assistant · <a href="https://boleizhou.github.io/">Zhou Lab, UCLA</a></div>
+                    <div class="t-sub">Generative simulation for reinforcement learning (TrafficGen, ScenarioNet). Advised by Prof. Bolei Zhou.</div>
                 </div>
             </li>
             <li>
@@ -451,7 +564,7 @@
     <div class="container blog main gray" id="contact">
         <h1>Contact</h1>
         <p class="text">
-            The best way to reach me is by email at <a href="mailto:lan.feng@epfl.ch"><b>lan.feng@epfl.ch</b></a>. I am based in Lausanne, Switzerland. I also use <a href="https://x.com/lanfeng491270?s=21">X/Twitter</a> and <a href="https://www.linkedin.com/in/lan-feng-alan">LinkedIn</a>.
+            The best way to reach me is by email at <a href="mailto:lan.feng@epfl.ch"><b>lan.feng@epfl.ch</b></a>. I am based in Zurich, Switzerland. I also use <a href="https://x.com/lanfeng491270?s=21">X/Twitter</a> and <a href="https://www.linkedin.com/in/lan-feng-alan">LinkedIn</a>.
         </p>
         <p class="text">
             I am especially interested in collaborating on: <i>(i)</i> one- and few-step image and video generation, <i>(ii)</i> world models that generate training experience for physical AI, and <i>(iii)</i> choosing which data to generate and train on. If any of these resonate, drop me a line.
@@ -467,9 +580,25 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
     <script src="clarity/clarity.js"></script>
     <script src="assets/scripts/main.js"></script>
+    <script>
+        // Load and play teaser videos only when they scroll into view; keep the poster for reduced-motion users.
+        (function () {
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduce || !('IntersectionObserver' in window)) return;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (!e.isIntersecting) return;
+                    var v = e.target;
+                    v.src = v.dataset.src;
+                    var p = v.play();
+                    if (p && p.catch) p.catch(function () {});
+                    io.unobserve(v);
+                });
+            }, { rootMargin: '200px' });
+            document.querySelectorAll('video[data-src]').forEach(function (v) { io.observe(v); });
+        })();
+    </script>
 </body>
 </html>
