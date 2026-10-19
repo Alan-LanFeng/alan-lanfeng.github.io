@@ -150,22 +150,45 @@
         .button.icon svg.icon { font-size: 1.2em; margin-left: 0.5em; margin-bottom: 1px; }
 
         h2.pub-group { margin-top: 2.2rem; margin-bottom: 0.9rem; }
-        .pub-item.has-media { display: grid; grid-template-columns: 200px 1fr; gap: 1.1rem; align-items: start; }
+        /* Publication entries: the title block first, then a 16:9 figure beside the summary. Pairs read
+           reference on the left, ours on the right; the flagship paper gets a full-width reel. */
+        .pub-item.has-media {
+            display: grid; grid-template-columns: minmax(0, 48%) minmax(0, 1fr);
+            grid-template-areas: "head head" "fig sum"; column-gap: 1.5rem; row-gap: 0.7rem;
+        }
+        .pub-item.has-media .pub-head { grid-area: head; }
+        .pub-item.has-media .pub-media { grid-area: fig; }
+        .pub-item.has-media .pub-sum { grid-area: sum; display: flex; flex-direction: column; }
+        .pub-item.has-media .pub-sum .pub-tldr { margin-top: 0; }
+        .pub-item.has-media .pub-sum .pub-links { margin-top: auto; padding-top: 0.4rem; }
+        .pub-item.spotlight { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "fig" "sum"; }
         .pub-media {
             position: relative; display: block; aspect-ratio: 16 / 9;
             border-radius: 6px; overflow: hidden; background: #dfe4ea;
         }
-        .pub-media img, .pub-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .pub-media .cap {
-            position: absolute; bottom: 0.35rem; padding: 0.05rem 0.4rem; border-radius: 3px;
-            font-size: 0.7rem; font-weight: 600; color: #fff; background: rgba(0,0,0,0.55);
+        .pub-item.spotlight .pub-media { aspect-ratio: 2 / 1; border-radius: 8px; }
+        .pub-media::after {
+            content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(48,68,99,0.12);
         }
-        .pub-media .cap.l { left: 0.35rem; }
-        .pub-media .cap.r { right: 0.35rem; }
+        .pub-media img, .pub-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+        .pub-media .cap {
+            position: absolute; z-index: 1; left: 0.45rem; top: 0.45rem; max-width: calc(50% - 0.9rem);
+            padding: 0.1rem 0.45rem; border-radius: 4px;
+            font-size: 0.68rem; font-weight: 500; line-height: 1.45; color: #fff; background: rgba(26,43,66,0.72);
+        }
+        .pub-media .cap.b { left: calc(50% + 0.45rem); }
+        .pub-media .cap.q { top: auto; bottom: 0.45rem; max-width: calc(100% - 0.9rem); font-style: italic; }
+        .pub-media .cap.solo, .pub-media .cap.stat { top: auto; bottom: 0.6rem; font-size: 0.74rem; padding: 0.15rem 0.55rem; }
+        .pub-media .cap.solo { left: 0.6rem; max-width: calc(55% - 0.9rem); }
+        .pub-media .cap.stat { left: auto; right: 0.6rem; max-width: calc(45% - 0.9rem); }
         .pub-links .stars { opacity: 0.75; margin-left: 0.15rem; }
 
-        @media (max-width: 700px) {
-            .pub-item.has-media { grid-template-columns: 1fr; }
+        @media (max-width: 820px) {
+            .pub-item.has-media { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "fig" "sum"; }
+            .pub-item.spotlight .pub-media { aspect-ratio: 16 / 9; }
+            .pub-media .cap.solo, .pub-media .cap.stat { left: 0.6rem; right: auto; max-width: calc(100% - 1.2rem); }
+            .pub-media .cap.solo { bottom: 2.3rem; }
         }
 
         @media (max-width: 600px) {
@@ -182,7 +205,6 @@
         i, em { font-style: italic; }
         a:focus-visible, .button:focus-visible { outline: 2px solid #304463; outline-offset: 2px; }
         .pub-item { line-height: 1.5; }
-        .pub-media .cap { font-size: 0.65rem; padding: 0.05rem 0.3rem; }
 
         div.container.blog#first-content div.blog-title.no-cover h1.title,
         div.container.blog#first-content div.blog-title.no-cover p.author { text-align: left; padding-left: 0; padding-right: 0; }
@@ -306,17 +328,19 @@
         <h2 class="pub-group">Generative models</h2>
 
         <!-- PTD -->
-        <div class="pub-item pub-featured has-media" id="ptd">
-            <a class="pub-media" href="https://alan-lanfeng.github.io/PTD/" aria-label="PTD project page">
-                <video data-src="assets/media/ptd-teaser.mp4" poster="assets/media/ptd-teaser.jpg" muted loop playsinline preload="none" width="640" height="360"></video>
-                <span class="cap r">6 steps</span>
-            </a>
-            <div class="pub-body">
+        <div class="pub-item pub-featured has-media spotlight" id="ptd">
+            <div class="pub-head">
                 <div class="pub-title">
                     <a href="https://alan-lanfeng.github.io/PTD/">Parametric Trajectory Distillation for Few-Step Video Generation</a>
                 </div>
                 <div class="pub-authors"><span class="me">Lan Feng</span>, Peter Karkus, Maximilian Igl, Julius Berner, Yuxiao Chen, Shuhan Tan, Alexandre Alahi, Boris Ivanovic, Marco Pavone</div>
                 <div class="pub-venue">arXiv 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
+            </div>
+            <a class="pub-media" href="https://alan-lanfeng.github.io/PTD/" aria-label="PTD project page">
+                <video data-src="assets/media/ptd-reel.mp4" data-src-phone="assets/media/ptd-reel-phone.mp4" data-poster="assets/media/ptd-reel.jpg" data-poster-phone="assets/media/ptd-reel-phone.jpg" muted loop playsinline preload="none" width="1280" height="640" aria-label="Five four-step PTD clips from the blind study: a kayak at dawn, a horse cantering on a beach, a tennis serve, a hiker crossing a stream and a hand brushing tall grass"></video>
+                <span class="cap solo">Four-step PTD on MiniMax-H3</span><span class="cap stat">31 s instead of 343 s per clip</span>
+            </a>
+            <div class="pub-sum">
                 <div class="pub-tldr">Few-step distillation for large video diffusion and flow models: the student fits each denoising segment with a polynomial curve under a single least-squares loss and keeps the teacher's architecture. On the 33B audio-video MiniMax-H3, PTD trained with LoRA alone samples in four steps instead of 50 (31 s instead of 343 s for a five-second clip with sound on H100 GPUs). Against the DMD-based LightX2V Turbo it raises judged seed diversity from 1.55 to 2.81 at matching motion quality, and blinded raters give it a 63.4% preference share.</div>
                 <div class="pub-links">
                     <a href="https://arxiv.org/abs/2610.11498">arXiv</a>
@@ -327,16 +351,18 @@
 
         <!-- RDM -->
         <div class="pub-item pub-featured has-media" id="rdm">
-            <a class="pub-media" href="https://alan-lanfeng.github.io/rdm/" aria-label="RDM project page">
-                <img src="assets/media/rdm-teaser.jpg" alt="The same prompt generated by the four-step FLUX.2 [klein] teacher and by the one-step RDM student" loading="lazy" width="640" height="360">
-                <span class="cap l">4 steps (teacher)</span><span class="cap r">1 step (RDM)</span>
-            </a>
-            <div class="pub-body">
+            <div class="pub-head">
                 <div class="pub-title">
                     <a href="https://alan-lanfeng.github.io/rdm/">Representation Distribution Matching for One-Step Visual Generation</a>
                 </div>
                 <div class="pub-authors"><span class="me">Lan Feng</span>, Wuyang Li, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
                 <div class="pub-venue">arXiv 2026</div>
+            </div>
+            <a class="pub-media" href="https://alan-lanfeng.github.io/rdm/" aria-label="RDM project page">
+                <img src="assets/media/rdm-wide.jpg" alt="A red sports car on a rainy neon street, generated by the four-step FLUX.2 [klein] teacher (left) and by the one-step RDM student (right)" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Teacher, 4 steps</span><span class="cap b">RDM, 1 step</span>
+            </a>
+            <div class="pub-sum">
                 <div class="pub-tldr">A one-step image generator trained by matching feature distributions under frozen encoders, with no online teacher, adversary, trajectory, or JVP. Sets the one-step state of the art on ImageNet under SW<sub>r14</sub>, a Sliced-Wasserstein distance over 14 frozen encoders, and post-trains the four-step FLUX.2 [klein] into a one-step model that beats it on GenEval (0.826 vs 0.794) and PickScore (22.76 vs 22.58) in 90 H200 GPU-hours.</div>
                 <div class="pub-links">
                     <a href="https://arxiv.org/abs/2607.02375">arXiv</a>
@@ -349,47 +375,65 @@
         </div>
 
         <!-- EverAnimate -->
-        <div class="pub-item pub-featured" id="everanimate">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2605.15042">EverAnimate: Minute-Scale Human Animation via Latent Flow Restoration</a>
+        <div class="pub-item pub-featured has-media" id="everanimate">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2605.15042">EverAnimate: Minute-Scale Human Animation via Latent Flow Restoration</a>
+                </div>
+                <div class="pub-authors">Wuyang Li, Yang Gao, Mariam Hassan, <span class="me">Lan Feng</span>, Wentao Pan, Po-Chien Luan, Alexandre Alahi</div>
+                <div class="pub-venue">NeurIPS 2026</div>
             </div>
-            <div class="pub-authors">Wuyang Li, Yang Gao, Mariam Hassan, <span class="me">Lan Feng</span>, Wentao Pan, Po-Chien Luan, Alexandre Alahi</div>
-            <div class="pub-venue">NeurIPS 2026</div>
-            <div class="pub-tldr">Minute-scale human animation with less drift: a persistent latent memory carries identity and motion across chunks, and restorative flow matching refines each chunk during sampling, with LoRA tuning only. At 90 seconds it reduces LPIPS by 32% and FID by 27% against prior long-animation methods.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2605.15042">arXiv</a>
-                <a href="https://everanimate.github.io/homepage/">Project</a>
-                <a href="https://github.com/vita-epfl/EverAnimate">Code</a>
+            <a class="pub-media" href="https://everanimate.github.io/homepage/" aria-label="EverAnimate project page">
+                <img src="assets/media/everanimate-wide.jpg" alt="A speaker at a podium after 90 seconds of animation: the Wan-Animate frame (left) shows background artifacts, the EverAnimate frame (right) stays clean" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Wan-Animate at 90 s</span><span class="cap b">EverAnimate at 90 s</span>
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">Minute-scale human animation with less drift: a persistent latent memory carries identity and motion across chunks, and restorative flow matching refines each chunk during sampling, with LoRA tuning only. At 90 seconds it reduces LPIPS by 32% and FID by 27% against prior long-animation methods.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2605.15042">arXiv</a>
+                    <a href="https://everanimate.github.io/homepage/">Project</a>
+                    <a href="https://github.com/vita-epfl/EverAnimate">Code</a>
+                </div>
             </div>
         </div>
 
         <h2 class="pub-group">World models and data for physical AI</h2>
 
         <!-- Grounded World Model -->
-        <div class="pub-item pub-featured" id="gwm">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2604.11751">Grounded World Model: Latent Planning with Language Goals</a>
+        <div class="pub-item pub-featured has-media" id="gwm">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2604.11751">Grounded World Model: Latent Planning with Language Goals</a>
+                </div>
+                <div class="pub-authors">Quanyi Li, <span class="me">Lan Feng</span>, Haonan Zhang, Wuyang Li, Letian Wang, Alexandre Alahi, Harold Soh</div>
+                <div class="pub-venue">arXiv 2026</div>
             </div>
-            <div class="pub-authors">Quanyi Li, <span class="me">Lan Feng</span>, Haonan Zhang, Wuyang Li, Letian Wang, Alexandre Alahi, Harold Soh</div>
-            <div class="pub-venue">arXiv 2026</div>
-            <div class="pub-tldr">A latent world model that imagines the outcome of candidate actions and scores it against a language instruction in a shared vision-language space, so a robot can plan toward goals given in words. In simulation (WISER) it solves 87% of 288 tasks with unseen instructions, against 22% on average for ten fine-tuned VLA models, and on a real Franka arm it completes 55 of 60 pick-and-place sub-tasks.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2604.11751">arXiv</a>
+            <a class="pub-media" href="https://arxiv.org/abs/2604.11751" aria-label="Grounded World Model on arXiv">
+                <img src="assets/media/gwm-wide.jpg" alt="A real Franka robot arm above a table with a box, a bread roll and a plate, given the instruction to pick up the tool used to clean shoes" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap q">“Pick up the tool used to clean shoes”</span>
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">A latent world model that imagines the outcome of candidate actions and scores it against a language instruction in a shared vision-language space, so a robot can plan toward goals given in words. In simulation (WISER) it solves 87% of 288 tasks with unseen instructions, against 22% on average for ten fine-tuned VLA models, and on a real Franka arm it completes 55 of 60 pick-and-place sub-tasks.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2604.11751">arXiv</a>
+                </div>
             </div>
         </div>
 
         <!-- RAP -->
         <div class="pub-item pub-featured has-media" id="rap">
-            <a class="pub-media" href="https://alan-lanfeng.github.io/RAP/" aria-label="RAP project page">
-                <img src="assets/media/rap-teaser.jpg" alt="A camera frame from a driving log next to the matching lightweight 3D rasterization" loading="lazy" width="640" height="360">
-                <span class="cap l">camera</span><span class="cap r">3D raster</span>
-            </a>
-            <div class="pub-body">
+            <div class="pub-head">
                 <div class="pub-title">
                     <a href="https://alan-lanfeng.github.io/RAP/">RAP: 3D Rasterization Augmented End-to-End Planning</a>
                 </div>
                 <div class="pub-authors"><span class="me">Lan Feng</span>, Yang Gao, Éloi Zablocki, Quanyi Li, Wuyang Li, Sichao Liu, Matthieu Cord, Alexandre Alahi</div>
                 <div class="pub-venue">ICLR 2026 <span class="badge-award">🏆 1st, Waymo 2025 Vision-based E2E Challenge</span></div>
+            </div>
+            <a class="pub-media" href="https://alan-lanfeng.github.io/RAP/" aria-label="RAP project page">
+                <img src="assets/media/rap-wide.jpg" alt="A camera frame from a driving log (left) and the matching lightweight 3D rasterization (right)" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Camera</span><span class="cap b">3D rasterization</span>
+            </a>
+            <div class="pub-sum">
                 <div class="pub-tldr">Data augmentation for end-to-end driving with lightweight 3D rasterization instead of photorealistic rendering: recovery maneuvers and cross-agent views, over 500k training samples, aligned to real images in feature space. Ranked first on NAVSIM v1/v2 and Bench2Drive at publication.</div>
                 <div class="pub-links">
                     <a href="https://arxiv.org/abs/2510.04333">arXiv</a>
@@ -400,31 +444,91 @@
         </div>
 
         <!-- TAROT -->
-        <div class="pub-item pub-featured" id="tarot">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2412.00420">TAROT: Targeted Data Selection via Optimal Transport</a>
+        <div class="pub-item pub-featured has-media" id="tarot">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2412.00420">TAROT: Targeted Data Selection via Optimal Transport</a>
+                </div>
+                <div class="pub-authors"><span class="me">Lan Feng*</span>, Fan Nie*, Yuejiang Liu, Alexandre Alahi</div>
+                <div class="pub-venue">ICML 2025 <span class="badge-award">🏆 nuScenes Prediction #1</span></div>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng*</span>, Fan Nie*, Yuejiang Liu, Alexandre Alahi</div>
-            <div class="pub-venue">ICML 2025 <span class="badge-award">🏆 nuScenes Prediction #1</span></div>
-            <div class="pub-tldr">Selects the training subset whose optimal-transport distance to a target domain is smallest, measured with whitened feature distances. Beats prior selection methods on semantic segmentation, motion prediction, and LLM instruction tuning, and models trained on its subsets match or beat those trained on the full dataset.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2412.00420">arXiv</a>
-                <a href="https://github.com/vita-epfl/TAROT">Code</a>
+            <a class="pub-media" href="https://arxiv.org/abs/2412.00420" aria-label="TAROT on arXiv">
+                <img src="assets/media/tarot-wide.jpg" alt="A Cityscapes street scene with its segmentation map (left) and the nearest GTA5 frame by whitened feature distance, with its segmentation map (right)" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Target, Cityscapes</span><span class="cap b">Nearest GTA5 frame</span>
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">Selects the training subset whose optimal-transport distance to a target domain is smallest, measured with whitened feature distances. Beats prior selection methods on semantic segmentation, motion prediction, and LLM instruction tuning, and models trained on its subsets match or beat those trained on the full dataset.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2412.00420">arXiv</a>
+                    <a href="https://github.com/vita-epfl/TAROT">Code</a>
+                </div>
             </div>
         </div>
 
         <!-- UniTraj -->
-        <div class="pub-item pub-featured" id="unitraj">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2403.15098">UniTraj: A Unified Framework for Scalable Vehicle Trajectory Prediction</a>
+        <div class="pub-item pub-featured has-media" id="unitraj">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2403.15098">UniTraj: A Unified Framework for Scalable Vehicle Trajectory Prediction</a>
+                </div>
+                <div class="pub-authors"><span class="me">Lan Feng*</span>, Mohammadhossein Bahari*, Kaouther Messaoud Ben Amor, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
+                <div class="pub-venue">ECCV 2024 <span class="badge-award">🏆 nuScenes Prediction #1</span></div>
             </div>
-            <div class="pub-authors"><span class="me">Lan Feng*</span>, Mohammadhossein Bahari*, Kaouther Messaoud Ben Amor, Éloi Zablocki, Matthieu Cord, Alexandre Alahi</div>
-            <div class="pub-venue">ECCV 2024 <span class="badge-award">🏆 nuScenes Prediction #1</span></div>
-            <div class="pub-tldr">Unifies datasets, models, and metrics across Waymo, Argoverse, and nuScenes for vehicle trajectory prediction. Shows that models degrade sharply on unseen datasets, and that training on more, and more diverse, data gives a new state of the art on nuScenes.</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2403.15098">arXiv</a>
-                <a href="https://vita-epfl.github.io/UniTraj/">Project</a>
-                <a href="https://github.com/vita-epfl/UniTraj">Code <span class="stars">★ 480+</span></a>
+            <a class="pub-media" href="https://vita-epfl.github.io/UniTraj/" aria-label="UniTraj project page">
+                <img src="assets/media/unitraj-wide.jpg" alt="Waymo, nuScenes, Argoverse 2 and MetaDrive data converted into one unified dataset, shown as top-down maps with trajectories" loading="lazy" decoding="async" width="720" height="404">
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">Unifies datasets, models, and metrics across Waymo, Argoverse, and nuScenes for vehicle trajectory prediction. Shows that models degrade sharply on unseen datasets, and that training on more, and more diverse, data gives a new state of the art on nuScenes.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2403.15098">arXiv</a>
+                    <a href="https://vita-epfl.github.io/UniTraj/">Project</a>
+                    <a href="https://github.com/vita-epfl/UniTraj">Code <span class="stars">★ 480+</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SynH2R -->
+        <div class="pub-item pub-featured has-media" id="synh2r">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2311.05599">SynH2R: Synthesizing Hand-Object Motions for Learning Human-to-Robot Handovers</a>
+                </div>
+                <div class="pub-authors">Sammy Christen*, <span class="me">Lan Feng*</span>, Wei Yang, Yu-Wei Chao, Otmar Hilliges, Jie Song</div>
+                <div class="pub-venue">ICRA 2024 &nbsp;·&nbsp; w/ ETH AIT Lab &amp; NVIDIA</div>
+            </div>
+            <a class="pub-media" href="https://eth-ait.github.io/synthetic-handovers/" aria-label="SynH2R project page">
+                <img src="assets/media/synh2r-wide.jpg" alt="Synthetic human hands handing over an object in simulation (left) and a real robot arm taking a banana from a person (right)" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Synthetic human motion</span><span class="cap b">Real robot</span>
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">Trains human-to-robot handover policies on synthetic hand-object motions instead of motion-capture data. A handover-aware grasp synthesis method generates training and test data with 100x more objects than prior work, and the policy trained purely on synthetic data is competitive with methods that use real human motion, in simulation and on a real robot.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2311.05599">arXiv</a>
+                    <a href="https://eth-ait.github.io/synthetic-handovers/">Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ScenarioNet -->
+        <div class="pub-item pub-featured has-media" id="scenarionet">
+            <div class="pub-head">
+                <div class="pub-title">
+                    <a href="https://arxiv.org/abs/2306.12241">ScenarioNet: Open-Source Platform for Large-Scale Traffic Scenario Simulation and Modeling</a>
+                </div>
+                <div class="pub-authors">Quanyi Li*, Zhenghao Peng*, <span class="me">Lan Feng*</span>, Zhizheng Liu, Chenda Duan, Wenjie Mo, Bolei Zhou</div>
+                <div class="pub-venue">NeurIPS 2023 Datasets and Benchmarks Track</div>
+            </div>
+            <a class="pub-media" href="https://metadriverse.github.io/scenarionet/" aria-label="ScenarioNet project page">
+                <img src="assets/media/scenarionet-wide.jpg" alt="A real driving scene with annotated vehicles (left) and the same scenario replayed in the MetaDrive simulator (right)" loading="lazy" decoding="async" width="720" height="404">
+                <span class="cap a">Real-world log</span><span class="cap b">Replayed in simulation</span>
+            </a>
+            <div class="pub-sum">
+                <div class="pub-tldr">An open-source platform that converts real-world driving logs from Waymo, nuScenes, Lyft L5 and nuPlan into one scenario format and replays them as digital twins in the MetaDrive simulator, from bird’s-eye-view layouts to 3D rendering. Supports large-scale scenario generation, imitation learning and reinforcement learning.</div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2306.12241">arXiv</a>
+                    <a href="https://metadriverse.github.io/scenarionet/">Project</a>
+                    <a href="https://github.com/metadriverse/scenarionet">Code <span class="stars">★ 290+</span></a>
+                </div>
             </div>
         </div>
 
@@ -439,19 +543,6 @@
             <div class="pub-venue">COLM 2025 &nbsp;·&nbsp; w/ Stanford</div>
             <div class="pub-links">
                 <a href="https://arxiv.org/abs/2504.04785">arXiv</a>
-            </div>
-        </div>
-
-        <!-- SynH2R -->
-        <div class="pub-item" id="synh2r">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2311.05599">SynH2R: Synthesizing Hand-Object Motions for Learning Human-to-Robot Handovers</a>
-            </div>
-            <div class="pub-authors">Sammy Christen*, <span class="me">Lan Feng*</span>, Wei Yang, Yu-Wei Chao, Otmar Hilliges, Jie Song</div>
-            <div class="pub-venue">ICRA 2024 &nbsp;·&nbsp; w/ ETH AIT Lab &amp; NVIDIA</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2311.05599">arXiv</a>
-                <a href="https://eth-ait.github.io/synthetic-handovers/">Project</a>
             </div>
         </div>
 
@@ -479,19 +570,6 @@
                 <a href="https://arxiv.org/abs/2210.06609">arXiv</a>
                 <a href="https://metadriverse.github.io/trafficgen/">Project</a>
                 <a href="https://github.com/metadriverse/trafficgen">Code <span class="stars">★ 190+</span></a>
-            </div>
-        </div>
-
-        <!-- ScenarioNet -->
-        <div class="pub-item">
-            <div class="pub-title">
-                <a href="https://arxiv.org/abs/2306.12241">ScenarioNet: Open-Source Platform for Large-Scale Traffic Scenario Simulation and Modeling</a>
-            </div>
-            <div class="pub-authors">Quanyi Li*, Zhenghao Peng*, <span class="me">Lan Feng*</span>, Zhizheng Liu, Chenda Duan, Wenjie Mo, Bolei Zhou</div>
-            <div class="pub-venue">NeurIPS 2023 Datasets and Benchmarks Track</div>
-            <div class="pub-links">
-                <a href="https://arxiv.org/abs/2306.12241">arXiv</a>
-                <a href="https://github.com/metadriverse/scenarionet">Code <span class="stars">★ 290+</span></a>
             </div>
         </div>
 
@@ -645,15 +723,20 @@
     </footer>
 
     <script>
-        // Load and play teaser videos only when they scroll into view; keep the poster for reduced-motion users.
+        // Teaser videos: phones get the 16:9 cut, wider screens the 2:1 one. Play only once
+        // scrolled into view; reduced-motion users keep the poster.
         (function () {
+            var narrow = window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
+            document.querySelectorAll('video[data-src]').forEach(function (v) {
+                v.poster = (narrow && v.dataset.posterPhone) || v.dataset.poster;
+            });
             var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduce || !('IntersectionObserver' in window)) return;
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (e) {
                     if (!e.isIntersecting) return;
                     var v = e.target;
-                    v.src = v.dataset.src;
+                    v.src = (narrow && v.dataset.srcPhone) || v.dataset.src;
                     var p = v.play();
                     if (p && p.catch) p.catch(function () {});
                     io.unobserve(v);
