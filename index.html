@@ -182,11 +182,20 @@
         .pub-media .cap.solo, .pub-media .cap.stat { top: auto; bottom: 0.6rem; font-size: 0.74rem; padding: 0.15rem 0.55rem; }
         .pub-media .cap.solo { left: 0.6rem; max-width: calc(55% - 0.9rem); }
         .pub-media .cap.stat { left: auto; right: 0.6rem; max-width: calc(45% - 0.9rem); }
-        .reel-labels { position: absolute; z-index: 1; inset: auto 0 0.6rem; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .reel-labels .cap { position: static; justify-self: start; margin-left: 0.45rem; max-width: calc(100% - 0.45rem); }
-        .reel-labels .task { display: none; }
-        .reel-labels.is-playing { display: flex; }
-        .reel-labels.is-playing .task { display: inline; }
+        .reel-layer { position: absolute; inset: 0; z-index: 1; pointer-events: none; display: grid; }
+        .reel-columns { grid-template-columns: repeat(var(--columns, 3), minmax(0, 1fr)); }
+        .reel-pair { --columns: 2; }
+        .reel-columns .cap { position: static; align-self: start; justify-self: start; max-width: calc(100% - 0.5rem); margin: 0.45rem 0 0 0.4rem; }
+        .reel-cover .cap { align-self: end; margin-bottom: 0.45rem; }
+        .reel-rows { width: 18%; grid-template-rows: repeat(3, minmax(0, 1fr)); align-items: center; }
+        .reel-rows span { text-align: center; font-size: clamp(0.68rem, 1.5vw, 0.92rem); font-weight: 600; color: #263b48; }
+        .reel-menu { display: flex; flex-wrap: wrap; align-items: center; gap: 0 0.25rem; }
+        .reel-menu button { cursor: pointer; font: inherit; font-size: 0.85rem; min-height: 44px; padding: 0.25rem 0.45rem; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #304463; }
+        .reel-menu button[aria-pressed="true"] { color: #1a2b42; font-weight: 600; border-bottom-color: currentColor; }
+        .reel-menu button:focus-visible { outline: 2px solid #304463; outline-offset: -2px; }
+        .reel-menu .reel-play { margin-left: auto; }
+        .reel-caption { margin: 0.15rem 0 0.8rem; color: #4a5568; font-size: 0.85rem; line-height: 1.4; }
+        .reel-layer[hidden], .reel-menu[hidden] { display: none; }
         .pub-links .stars { opacity: 0.75; margin-left: 0.15rem; }
 
         @media (max-width: 820px) {
@@ -343,14 +352,22 @@
                 <div class="pub-venue">Preprint 2026 &nbsp;·&nbsp; w/ NVIDIA Research</div>
             </div>
             <a class="pub-media" href="https://alan-lanfeng.github.io/FlowRDM-website/" aria-label="View the FlowRDM project and experiments">
-                <video data-src="assets/media/flowrdm-domains.mp4" data-src-phone="assets/media/flowrdm-domains-phone.mp4" poster="assets/media/flowrdm-domains.webp" data-poster="assets/media/flowrdm-domains.webp" data-poster-phone="assets/media/flowrdm-domains-phone.webp" muted loop playsinline preload="none" width="1280" height="640" aria-label="Wan2.2 generates a red panda and toucan in Santorini. Cosmos3-Super predicts an orange ball rolling off a table. A simulated Unitree G1 humanoid tracks a dance."></video>
-                <span class="reel-labels" aria-hidden="true">
-                    <span class="cap" data-start="0">Wan2.2<span class="task"> · Video generation</span></span>
-                    <span class="cap" data-start="3">Cosmos3-Super<span class="task"> · World model prediction</span></span>
-                    <span class="cap" data-start="6">G1 humanoid<span class="task"> · Dance tracking</span></span>
-                </span>
+                <video id="flowrdm-reel" data-src="assets/media/flowrdm-experiments.mp4" data-src-phone="assets/media/flowrdm-experiments-phone.mp4" poster="assets/media/flowrdm-domains.webp" data-poster="assets/media/flowrdm-domains.webp" data-poster-phone="assets/media/flowrdm-domains-phone.webp" muted loop playsinline preload="none" width="1280" height="640" aria-label="Wan2.2 video generation, two synchronized comparisons of real footage, base Cosmos3-Super and FlowRDM, and seven Unitree G1 motions."></video>
+                <span class="reel-layer reel-columns reel-cover" aria-hidden="true"><span class="cap">Wan2.2</span><span class="cap">Cosmos3-Super</span><span class="cap">G1 humanoid</span></span>
+                <span class="reel-layer" data-view="wan" aria-hidden="true" hidden><span class="cap">Wan2.2 · FlowRDM</span></span>
+                <span class="reel-layer reel-rows" data-view="cosmos" aria-hidden="true" hidden><span>Real</span><span>Base</span><span>FlowRDM</span></span>
+                <span class="reel-layer reel-columns" data-view="locomotion" aria-hidden="true" hidden><span class="cap">Walk</span><span class="cap">Run</span><span class="cap">Jumps</span></span>
+                <span class="reel-layer reel-columns reel-pair" data-view="dance" aria-hidden="true" hidden><span class="cap">Dance 1</span><span class="cap">Dance 2</span></span>
+                <span class="reel-layer reel-columns reel-pair" data-view="recovery" aria-hidden="true" hidden><span class="cap">Fight</span><span class="cap">Fall and recovery</span></span>
             </a>
             <div class="pub-sum">
+                <div class="reel-menu" role="group" aria-label="FlowRDM experiment playback" hidden>
+                    <button type="button" data-domain="wan" aria-controls="flowrdm-reel" aria-pressed="false">Wan2.2</button>
+                    <button type="button" data-domain="cosmos" aria-controls="flowrdm-reel" aria-pressed="false">Cosmos3</button>
+                    <button type="button" data-domain="humanoid" aria-controls="flowrdm-reel" aria-pressed="false">Humanoid (7)</button>
+                    <button type="button" class="reel-play" aria-controls="flowrdm-reel">Play</button>
+                </div>
+                <p class="reel-caption">Wan2.2 video generation, two Cosmos3-Super predictions compared with real footage, and seven Unitree G1 motions.</p>
                 <div class="pub-tldr">FlowRDM samples several outputs for the same prompt or state, scores them, and uses higher-reward samples to guide the update in feature space. A vision-language judge preferred videos from the post-trained Wan2.2 model in 78% of 256 comparisons with the base model. Cosmos3-Super reached 67.8 on Physics-IQ Verified after post-training on simulated clips. For humanoid tracking, FlowRDM surpassed FPO++ and Gaussian PPO on all seven motions using 33% fewer environment steps.</div>
                 <div class="pub-links">
                     <a href="https://alan-lanfeng.github.io/FlowRDM-website/assets/paper/FlowRDM_arxiv.pdf">PDF</a>
@@ -762,32 +779,82 @@
             document.querySelectorAll('video[data-src]').forEach(function (v) {
                 v.poster = (narrow && v.dataset.posterPhone) || v.dataset.poster;
             });
+            function loadVideo(video) {
+                if (!video.hasAttribute('src')) video.src = (narrow && video.dataset.srcPhone) || video.dataset.src;
+            }
+            function playVideo(video) {
+                loadVideo(video);
+                var playback = video.play();
+                if (playback) playback.catch(function () {});
+            }
+
+            var card = document.getElementById('flowrdm');
+            var reel = card.querySelector('video');
+            var menu = card.querySelector('.reel-menu');
+            var buttons = menu.querySelectorAll('[data-domain]');
+            var toggle = menu.querySelector('.reel-play');
+            var caption = card.querySelector('.reel-caption');
+            var cover = card.querySelector('.reel-cover');
+            var layers = card.querySelectorAll('[data-view]');
+            var shots = [
+                { at: 0, domain: 'wan', view: 'wan', text: 'A red panda and a toucan in Santorini, generated by Wan2.2 after FlowRDM post-training.' },
+                { at: 3, domain: 'cosmos', view: 'cosmos', text: 'Cosmos3-Super and FlowRDM continue the same three-second input. All three views pause at +1 s. Only the base prediction still shows the orange ball on the table.' },
+                { at: 6.5, domain: 'cosmos', view: 'cosmos', text: 'A gray ball rolls behind a white obstacle. All three views pause at +1 s. The ball has left the frame in the real and FlowRDM clips, while the base model places it back on the left.' },
+                { at: 10, domain: 'humanoid', view: 'locomotion', text: 'Unitree G1 tracks walking, running and jumping. Each policy trained with FlowRDM for 197M environment steps.' },
+                { at: 14, domain: 'humanoid', view: 'dance', text: 'Two G1 policies track different dance sequences from LAFAN1.' },
+                { at: 18, domain: 'humanoid', view: 'recovery', text: 'The G1 tracks a fighting sequence on the left. On the right it falls, lies down and sits back up.' }
+            ];
+            var activeShot, pendingStart = null;
+            function showShot(time) {
+                var shot = shots[0];
+                for (var i = 1; i < shots.length && shots[i].at <= time; i++) shot = shots[i];
+                if (shot === activeShot) return;
+                activeShot = shot;
+                cover.hidden = true;
+                layers.forEach(function (layer) { layer.hidden = layer.dataset.view !== shot.view; });
+                buttons.forEach(function (button) {
+                    button.setAttribute('aria-pressed', String(button.dataset.domain === shot.domain));
+                });
+                caption.textContent = shot.text;
+            }
+            function seekToChapter() {
+                if (pendingStart !== null && reel.readyState >= 1) {
+                    reel.currentTime = pendingStart;
+                    pendingStart = null;
+                }
+            }
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    pendingStart = shots.find(function (shot) { return shot.domain === button.dataset.domain; }).at;
+                    loadVideo(reel);
+                    seekToChapter();
+                    playVideo(reel);
+                });
+            });
+            toggle.addEventListener('click', function () {
+                if (reel.paused) playVideo(reel); else reel.pause();
+            });
+            reel.addEventListener('loadedmetadata', seekToChapter);
+            reel.addEventListener('playing', function () { toggle.textContent = 'Pause'; showShot(reel.currentTime); });
+            reel.addEventListener('pause', function () { toggle.textContent = 'Play'; });
+            reel.addEventListener('seeked', function () { showShot(reel.currentTime); });
+            if ('requestVideoFrameCallback' in reel) {
+                reel.requestVideoFrameCallback(function onFrame(now, frame) {
+                    showShot(frame.mediaTime);
+                    reel.requestVideoFrameCallback(onFrame);
+                });
+            } else {
+                reel.addEventListener('timeupdate', function () { if (!reel.paused) showShot(reel.currentTime); });
+            }
+            menu.hidden = false;
+
             var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             if (reduce || !('IntersectionObserver' in window)) return;
-            var reel = document.querySelector('#flowrdm video');
-            var labels = document.querySelector('#flowrdm .reel-labels');
-            var chapters = Array.from(labels.children);
-            function labelChapter() {
-                labels.classList.add('is-playing');
-                chapters.forEach(function (label, index) {
-                    var next = chapters[index + 1];
-                    var end = next ? Number(next.dataset.start) : Infinity;
-                    label.hidden = reel.currentTime < Number(label.dataset.start) || reel.currentTime >= end;
-                });
-            }
-            reel.addEventListener('playing', labelChapter);
-            reel.addEventListener('seeked', labelChapter);
-            reel.addEventListener('timeupdate', function () {
-                if (!reel.paused) labelChapter();
-            });
-
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (e) {
                     if (!e.isIntersecting) return;
                     var v = e.target;
-                    v.src = (narrow && v.dataset.srcPhone) || v.dataset.src;
-                    var p = v.play();
-                    if (p && p.catch) p.catch(function () {});
+                    if (!v.hasAttribute('src')) playVideo(v);
                     io.unobserve(v);
                 });
             }, { rootMargin: '200px' });
